@@ -1,0 +1,7 @@
+.form {
+  text-align: right;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%);
+}
