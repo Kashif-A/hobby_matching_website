@@ -1,0 +1,82 @@
+* {
+margin: 0;
+padding: 0;
+}
+.navbar{
+	background-color: black;
+}
+.nav li a{
+	padding: 25px;
+}
+.nav li{
+	background-color: white;
+	margin: 15px;
+}
+.profile-container{
+	float: left;
+	width: 183px;
+	height: 250px;
+	margin: 20px;
+	border: 1px solid black;
+	text-align: center;
+}
+.profile-image {
+	width: 150px;
+	height: 150px;
+	background-color: black;
+	margin: 15px;
+	margin-bottom: 6px;
+	display: inline-block;
+}
+.profile-info {
+	width: 150px;
+	height: 60px;
+	background-color: black;
+	display: inline-block;
+}
+.all-profiles-holder {
+	display: inline;
+}
+.message-button {
+	margin-top: 20px;
+	display: inline-block;
+	width: 100%;
+}
+.individual-profile-image {
+	height: 250px;
+	width: 400px;
+	background-color: black;
+	display: inline-block;
+	margin: 10px;
+}
+.individual-profile-holder {
+ width: 50%;
+	display: inline-block;
+}
+.linkClass {
+	width: 8em;
+	text-align: center;
+}
+.gallery-holder {
+	display:flex;
+ flex-direction:row;
+	margin: 20px;
+}
+.form-container{
+	text-align: center;
+	margin-top: 8em;
+}
+.form-container-child {
+	display: inline-block;
+}
+input {
+	height: 3em;
+	width: 15em;
+}
+.btn {
+	width: 100%;
+	color: white;
+}
+label {
+	padding-right: 1em;
+}
