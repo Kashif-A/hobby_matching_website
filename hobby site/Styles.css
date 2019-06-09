@@ -14,24 +14,20 @@ padding: 0;
 }
 .profile-container{
 	float: left;
-	width: 183px;
+	width: 185px;
 	height: 250px;
-	margin: 20px;
+	margin: 15px;
 	border: 1px solid black;
 	text-align: center;
 }
 .profile-image {
-	width: 150px;
-	height: 150px;
-	background-color: black;
-	margin: 15px;
-	margin-bottom: 6px;
+	width: 183px;
+	height: 200px;
+	margin-bottom: 5px;
 	display: inline-block;
 }
 .profile-info {
-	width: 150px;
-	height: 60px;
-	background-color: black;
+	width: 100%;
 	display: inline-block;
 }
 .all-profiles-holder {
