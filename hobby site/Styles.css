@@ -15,20 +15,18 @@ padding: 0;
 .profile-container{
 	float: left;
 	width: 185px;
-	height: 250px;
+	height: 370px;
 	margin: 15px;
-	border: 1px solid black;
+	border: 2px solid black;
 	text-align: center;
 }
 .profile-image {
-	width: 183px;
+	width: 181px;
 	height: 200px;
 	margin-bottom: 5px;
 	display: inline-block;
 }
 .profile-info {
-	width: 100%;
-	display: inline-block;
 }
 .all-profiles-holder {
 	display: inline;
@@ -41,7 +39,6 @@ padding: 0;
 .individual-profile-image {
 	height: 250px;
 	width: 400px;
-	background-color: black;
 	display: inline-block;
 	margin: 10px;
 }
@@ -76,3 +73,11 @@ input {
 label {
 	padding-right: 1em;
 }
+ul li {
+	list-style-type: none;
+}
+.individual-profile-img {
+	margin-bottom: 10;
+	height: 250px;
+	width: 200px;
+	}
