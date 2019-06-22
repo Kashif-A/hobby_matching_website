@@ -5,17 +5,10 @@ padding: 0;
 .navbar{
 	background-color: black;
 }
-.nav li a{
-	padding: 25px;
-}
-.nav li{
-	background-color: white;
-	margin: 15px;
-}
 .profile-container{
 	float: left;
 	width: 185px;
-	height: 370px;
+	height: 340px;
 	margin: 15px;
 	border: 2px solid black;
 	text-align: center;
@@ -75,9 +68,24 @@ label {
 }
 ul li {
 	list-style-type: none;
+	text-align: left;
+	padding-left: 25px;
 }
 .individual-profile-img {
 	margin-bottom: 10;
 	height: 250px;
 	width: 200px;
 	}
+	.user-search input {
+		width: 70%;
+		margin-bottom: 4px;
+	}
+	.nav li a{
+	padding: 25px;
+}
+.nav li{
+	padding: 0px;
+	background-color: white;
+	margin: 15px;
+	text-align: center;
+}
