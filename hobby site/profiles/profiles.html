@@ -17,199 +17,211 @@
 <body>
 
     <nav class="navbar">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="#">WebSiteName</a>
-            </div>
-            <ul class="nav">
-                <li class="linkClass"><a href="../index/index.html"><h5>Home</h5></a></li>
-                <li class="active linkClass"><a href="profiles.html"><h5>Link 1</h5></a></li>
-                <li class="linkClass"><a href="#"><h5>Link 2</h5></a></li>
-            </ul>
-        </div>
-    </nav>
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a class="navbar-brand" href="#">WebSiteName</a>
+							</div>
+							<ul class="nav">
+								<li class="active linkClass"><a href="index.html"><h5>Home</h5><p>Link to HOMEPAGE<p></a></li>
+								<li class="linkClass"><a href="../profiles/profiles.html"><h5>Link 1</h5><p>Link to ...<p></a></li>
+								<li class="linkClass"><a href="#"><h5>Link 2</h5><p>Link to ...<p></a></li>
+							</ul>
+						</div>
+					</nav>
 
     <div class="row">
 						<div class="col-md-2"></div>
         <div class="col-md-8">
             <div class="text-center">
 														<br>
-															<div class="user-search">
-																	<input id="userInput" type="text" name="searchInput" placeholder="Search hobby...">
-																	<button type="btn btn-primary" onclick="search()">SEARCH</button>
+														<div style="margin-Top: 10px; border: 1px solid black; padding: 25px; height: 160px; background-color: #f2d6d3;">
+															<p><strong style="font-size: 23px;">Use this input field to search users based on hobbies or location.</strong></p>
+																<div class="user-search" style="display: inline">
+																		<input 
+																			id="userInput" 
+																			style="float: left; width: '100%'; border: 2px solid black;" 
+																			type="text" name="searchInput" 
+																			placeholder="Click this text to enter hobby or location..."
+																			onfocus="this.placeholder = ''"
+																			onblur="this.placeholder = 'Click this text to enter hobby or location...'" />
+																		<button 
+																			type="submit" 
+																			class="btn btn-primary" 
+																			onclick="search()"
+																			style="width: 220px; float: right;"><h4>SEARCH</h4></button>
+																</div>
 															</div>
 															<hr>
 															<div class="all-profiles-holder" id="all-profiles-holder">
-                    <!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Reading Movies Parks">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- Reading</li>
-																																		<li>- Movies</li>
-																																		<li>- Parks</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Painting Bowling Golf">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Painting</li>
-																																		<li>- &nbsp Bowling</li>
-																																		<li>- &nbsp Golf</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Swimming Tennis Cooking">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Swimming</li>
-																																		<li>- &nbsp Tennis</li>
-																																		<li>- &nbsp Cooking</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Dog Friends Chatting">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Dog walking</li>
-																																		<li>- &nbsp Friends</li>
-																																		<li>- &nbsp Chatting</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Internet Youtube Movies">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Browsing web</li>
-																																		<li>- &nbsp Youtube</li>
-																																		<li>- &nbsp Movies</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Movies Parks Reading">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Movies</li>
-																																		<li>- &nbsp Parks</li>
-																																		<li>- &nbsp Reading</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Golf Painting Bowling">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Golf</li>
-																																		<li>- &nbsp Painting</li>
-																																		<li>- &nbsp Bowling</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Swimming Cooking Tennis">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Swimming</li>
-																																		<li>- &nbsp Cooking</li>
-																																		<li>- &nbsp Tennis</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Friends Chatting Dog">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Friends</li>
-																																		<li>- &nbsp Chatting</li>
-																																		<li>- &nbsp Dog walking</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
-																				<!-- profile container -->
-                    <a href="individual-profile.html"
-																							id="Movies Youtube Internet">
-                        <div class="profile-container">
-                            <img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
-																																	class="profile-image">
-                            <div class="profile-info">
-																														<p>First Name - Last Name</p>
-																																<ul>
-																																		<li>- &nbsp Movies</li>
-																																		<li>- &nbsp Youtube</li>
-																																		<li>- &nbsp Browsing web</li>
-																																</ul>
-																												</div>
-                        </div>
-                    </a>
-																				
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Reading Movies Parks">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- Reading</li>
+																															<li>- Movies</li>
+																															<li>- Parks</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Painting Bowling Golf">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Painting</li>
+																															<li>- &nbsp Bowling</li>
+																															<li>- &nbsp Golf</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Swimming Tennis Cooking">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Swimming</li>
+																															<li>- &nbsp Tennis</li>
+																															<li>- &nbsp Cooking</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Dog Friends Chatting">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Dog walking</li>
+																															<li>- &nbsp Friends</li>
+																															<li>- &nbsp Chatting</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Internet Youtube Movies">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Browsing web</li>
+																															<li>- &nbsp Youtube</li>
+																															<li>- &nbsp Movies</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Movies Parks Reading">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Movies</li>
+																															<li>- &nbsp Parks</li>
+																															<li>- &nbsp Reading</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Golf Painting Bowling">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Golf</li>
+																															<li>- &nbsp Painting</li>
+																															<li>- &nbsp Bowling</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Swimming Cooking Tennis">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Swimming</li>
+																															<li>- &nbsp Cooking</li>
+																															<li>- &nbsp Tennis</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Friends Chatting Dog">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Friends</li>
+																															<li>- &nbsp Chatting</li>
+																															<li>- &nbsp Dog walking</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
+																	
+																	<!-- profile container -->
+																	<a href="individual-profile.html"
+																				id="Movies Youtube Internet">
+																					<div class="profile-container">
+																									<img src="https://media.gettyimages.com/photos/germany-bavaria-starnberger-see-portrait-of-a-senior-man-smiling-picture-id98285355?s=612x612"
+																														class="profile-image">
+																									<div class="profile-info">
+																											<p>First Name - Last Name</p>
+																													<ul>
+																															<li>- &nbsp Movies</li>
+																															<li>- &nbsp Youtube</li>
+																															<li>- &nbsp Browsing web</li>
+																													</ul>
+																									</div>
+																					</div>
+																	</a>
                 </div>
             </div>
         </div>

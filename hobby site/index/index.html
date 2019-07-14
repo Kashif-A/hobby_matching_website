@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" href="../Styles.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 
 <body>
@@ -22,9 +22,21 @@
 					<a class="navbar-brand" href="#">WebSiteName</a>
     </div>
     <ul class="nav">
-					<li class="active linkClass"><a href="index.html"><h5>Home</h5></a></li>
-					<li class="linkClass"><a href="../profiles/profiles.html"><h5>Link 1</h5></a></li>
-					<li class="linkClass"><a href="#"><h5>Link 2</h5></a></li>
+						<li style="width: 260px;" class="active linkClass">
+							<a href="index.html">
+								<h4 style="">Link to HOMEPAGE</h4>
+							</a>
+						</li>
+						<li style="width: 260px;" class="active linkClass">
+							<a href="index.html">
+								<h4 style="">Link One</h4>
+							</a>
+						</li>
+						<li style="width: 260px;" class="active linkClass">
+							<a href="index.html">
+								<h4 style="">Link Two</h4>
+							</a>
+						</li>
     </ul>
 			</div>
 		</nav>
@@ -35,7 +47,9 @@
 							<div class="form-container-child text-right">
 								<div class="form">
 									<form method=GET action="../profiles/profiles.html">
-										<fieldset>
+										<p><strong style="font-size: 23px;">Use this form to input Username and Password, then click Login button.</strong></p>
+										<br>
+										<fieldset style="text-align: center;">
 											<label for="uname"><b><h3>Username</h3></b></label>
 											<input type="text" placeholder="Enter Username" name="uname">
 											<br /><br />

@@ -1,9 +1,10 @@
 * {
 margin: 0;
 padding: 0;
+border-radius: 5px;
 }
 .navbar{
-	background-color: black;
+	background-color: #7a1f15;
 }
 .profile-container{
 	float: left;
@@ -50,7 +51,7 @@ padding: 0;
 }
 .form-container{
 	text-align: center;
-	margin-top: 8em;
+	margin-top: 4em;
 }
 .form-container-child {
 	display: inline-block;
@@ -58,6 +59,7 @@ padding: 0;
 input {
 	height: 3em;
 	width: 15em;
+	padding: 10px;
 }
 .btn {
 	width: 100%;
@@ -80,12 +82,35 @@ ul li {
 		width: 70%;
 		margin-bottom: 4px;
 	}
-	.nav li a{
-	padding: 25px;
-}
-.nav li{
+.nav li {
 	padding: 0px;
 	background-color: white;
-	margin: 15px;
+	margin-right: 25px;
 	text-align: center;
+}
+.nav li a h4 {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-Top: 10px;
+}
+.navbar-header {
+	background-color: white;
+	}
+.navbar-header a {
+	font-size: 30px;
+	padding-left: 20px;
+	padding-right: 10px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 0.7; /* Firefox */
+		font-size: 20px;
+		padding-left: 15px;
+}
+p, b, input, h1, h2, a, h3, h4, h5, h6 {
+	letter-spacing: 1.5px;
 }
