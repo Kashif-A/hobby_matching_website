@@ -11,17 +11,13 @@
 .individual-profile-image { height: 250px; width: 400px; display: inline-block; margin: 10px; }
 .individual-profile-holder { width: 50%; display: inline-block; }
 .gallery-holder { display:flex; flex-direction:row; margin: 20px; }
+.form { margin-Top: 10px; border: 2px solid black; padding: 25px; background-color: #f2d6d3; }
 .form-container{ text-align: center; 	margin-top: 4em; }
 .form-container-child { display: inline-block; }
-input {	height: 3em; width: 15em; padding: 10px; }
+label { margin-right: 10px }
+input {	height: 3em; width: 400px; padding: 10px; }
 .btn { width: 300px; color: white; }
 ul { text-align: center; }
 ul li { list-style-type: none; }
 .individual-profile-img { margin-bottom: 10; height: 250px; width: 200px; }
-	.user-search input { width: 70%; margin-bottom: 4px; }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-  opacity: 0.7; /* Firefox */
-		font-size: 20px;
-		padding-left: 15px;
-}
+::placeholder { color: black; opacity: 0.7; /* Firefox */ font-size: 20px; padding-left: 15px; }
