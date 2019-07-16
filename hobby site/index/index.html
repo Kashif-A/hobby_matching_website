@@ -32,13 +32,26 @@
 										<br /><br />
 										<fieldset style="text-align: center;">
 											<label for="uname"><b><h3>Username</h3></b></label>
-											<input type="text" placeholder="Enter Username Here" name="uname" style="margin-right: 7px;">
+											<input	
+														id="userInput" 
+														type="text"
+														name="uname" 
+														style="margin-right: 7px;"
+														placeholder="Click here to enter Username"
+														onfocus="this.placeholder = ''"
+														onblur="this.placeholder = 'Click here to enter Username'">
 											<br /><br />
 											<label for="pwd"><b><h3>Password</h3></b></label>
-											<input type="password" placeholder="Enter Password Here" name="pwd">
+											<input 	
+														id="userInput" 
+														type="password" 
+														name="pwd"
+														placeholder="Click here to enter Password"
+														onfocus="this.placeholder = ''"
+														onblur="this.placeholder = 'Click here to enter Password'">
 											<br/><br /><br />
 											<button type="submit" class="btn btn-primary" style="background-color: #171e75">
-														<h2 style="margin-top: -2px;"><strong>Login</strong></h2>
+														<h2 style="margin-top: -2px;"><strong>Login Button</strong></h2>
 											</button>
 										</fieldset>
 									</form>
@@ -49,8 +62,14 @@
 				</div>
    </div>
 </body>
-<script>setTimeout(function () {
-        location.reload();
-    }, 2000);</script>
-
+<script>				
+				document.getElementById("userInput").onkeydown = function checkIfEmpty(){
+				console.log(divs);
+    var key = event.keyCode || event.charCode;
+    if( key == 8 || key == 46 ){
+					if(document.getElementById("userInput").value === ""){
+						window.location.reload();
+					}
+				}
+				}
 </html>
