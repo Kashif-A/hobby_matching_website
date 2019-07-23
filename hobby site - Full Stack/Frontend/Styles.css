@@ -1,0 +1,33 @@
+* { margin: 0; padding: 0; border-radius: 8px; font-family: Calibri; letter-spacing: 2.5px; font-weight: bold; }
+.navbar{ background-color: #47140e; height: 85px; border-radius: 0px; }
+.navbar-header { background-color: white; padding-bottom: 5px; padding-top: 5px; margin-left: 34%; }
+.nav { margin-right: 34%; }
+.nav li { background-color: white; text-align: center; }
+.nav li a h5 { padding-left: 15px; padding-right: 15px; padding-top: 9px; padding-bottom: 9px; margin-Top: 5px; }
+
+.form { margin-Top: 10px; border: 2px solid black; padding: 25px; background-color: #292903; color: white; }
+.form-container{ text-align: center; 	margin-top: 4em; }
+.form-container-child { display: inline-block; }
+
+.profile-container{ background-color: #fafafa; float: left; width: 230px; height: 450px; margin: 35px;	border: 4px solid black; }
+.profile-image { 	width: 222px; border-radius: 0px; height: 200px; margin-bottom: 5px; display: inline-block; }
+.all-profiles-holder { display: inline; }
+.message-button { margin-top: 30px; width: 100%; }
+.individual-profile-image { height: 250px; width: 400px; display: inline-block; margin: 20px; }
+.profile-container { margin-bottom: 30px; margin-left: 28px; }
+.profile-info { margin-top: 10px; padding-left: 10px; padding-right: 10px; }
+.profile-info p { color: black; font-size: 22px; font-weight: bold; line-height: 10px; letter-spacing: 0.7px; }
+.profile-info h5 { border-radius: 0px; font-size: 22px; border-bottom: 2px solid #23187d; padding-bottom: 1px; width: 200px; letter-spacing: 1px; padding-Top: 5px; margin-Bottom: 9px; color: #23187d; }
+.profile-info ul li { list-style-type: disc; text-align: left; margin-left: 22px; margin-Top: -6px; color: #853220; font-size: 20px; letter-spacing: 1.5px; }
+
+.individual-profile-holder { width: 50%; display: inline-block; }
+
+label { margin-right: 10px }
+input {	height: 3em; width: 400px; padding: 10px; }
+input[type="text"] { font-size:20px; }
+input[type="password"] { font-size:20px; }
+.btn-primary { width: 310px; height: 55px; }
+
+ul li { list-style-type: none; }
+.individual-profile-img { margin-bottom: 10; height: 250px; width: 200px; }
+::placeholder { color: black; opacity: 0.7; /* Firefox */ font-size: 20px; padding-left: 15px; }

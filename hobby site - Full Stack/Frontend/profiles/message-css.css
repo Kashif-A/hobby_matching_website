@@ -1,0 +1,10 @@
+.container{ margin:auto; }
+img{ max-width:100%;}
+.inbox_msg { border: 3px solid black; clear: both; overflow: hidden; height: 300px; }
+
+.sent_msg p { float: right; background: #013947 none repeat scroll 0 0; border-radius: 3px; font-size: 14px; margin: 0; color:#fff; padding: 5px 10px 5px 12px; width:100%; }
+.outgoing_msg{ overflow:hidden;	margin:26px 0 26px; align: right; }
+.sent_msg { float: right; width: 52%; margin-Top: 10px; }
+.messaging { margin-left: 20%; margin-right: 20%; }
+.msg_history { height: 300px; overflow-y: auto; margin-right: 20px; }
+#hidden{ display: none; }
