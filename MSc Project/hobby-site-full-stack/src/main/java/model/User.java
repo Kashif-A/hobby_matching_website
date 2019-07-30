@@ -7,85 +7,101 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 @Component
 @Entity
-@Table(name="user_details")
+@Table(name="user_detail")
 public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "user_id", updatable = false, nullable = false)
+	@Column(name = "id", updatable = false, nullable = false)
 	int user_id;
 	@Column(name="username")
-	String username;
+	int username;
 	@Column(name="first_name")
-	int first_name;
+	String first_name;
 	@Column(name="last_name")
 	String last_name;
 	@Column(name="gender")
 	String gender;
-	@Column(name="password")
-	String password;
-	@Column(name="status")
+	@Column(name="location")
+	String location;
+	@Column(name="_status")
 	String status;
 	
-	public User() {};
-	
-	public User(String username, int first_name, String last_name, String gender, String password) {
-		this.username = username;
+	public User() {}
+
+	public User(String first_name, String last_name, String gender, String location, String status) {
+		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.gender = gender;
-		this.password = password;
+		this.location = location;
+		this.status = status;
 	}
+
+
+
 	public int getUser_id() {
 		return user_id;
 	}
+
 	public void setUser_id(int user_id) {
 		this.user_id = user_id;
 	}
-	public String getUsername() {
+
+	public int getUsername() {
 		return username;
 	}
-	public void setUsername(String username) {
+
+	public void setUsername(int username) {
 		this.username = username;
 	}
-	public int getFirst_name() {
+
+	public String getFirst_name() {
 		return first_name;
 	}
-	public void setFirst_name(int first_name) {
+
+	public void setFirst_name(String first_name) {
 		this.first_name = first_name;
 	}
+
 	public String getLast_name() {
 		return last_name;
 	}
+
 	public void setLast_name(String last_name) {
 		this.last_name = last_name;
 	}
+
 	public String getGender() {
 		return gender;
 	}
+
 	public void setGender(String gender) {
 		this.gender = gender;
 	}
-	public String getPassword() {
-		return password;
+
+	public String getLocation() {
+		return location;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+
+	public void setLocation(String location) {
+		this.location = location;
 	}
+
 	public String getStatus() {
 		return status;
 	}
+
 	public void setStatus(String status) {
 		this.status = status;
 	}
+
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", username=" + username + ", first_name=" + first_name + ", last_name="
-				+ last_name + ", gender=" + gender + ", password=" + password + ", status=" + status + "]";
-	}
-	
+				+ last_name + ", gender=" + gender + ", location=" + location + ", status=" + status + "]";
+	};	
 }
