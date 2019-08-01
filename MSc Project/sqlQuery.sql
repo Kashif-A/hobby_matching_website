@@ -20,6 +20,7 @@ CREATE TABLE IF NOT EXISTS user_detail (
     location VARCHAR(255) NOT NULL,
     _status VARCHAR(20) NOT NULL,
     username INT NOT NULL,
+				profile_img VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
     FOREIGN KEY (username) REFERENCES user_authentication(id)
 );
@@ -44,8 +45,8 @@ INSERT INTO user_authentication (username, password)
 VALUES ('username', 'password');
 
 /* user_detail */
-INSERT INTO user_detail (first_name, last_name, gender, location, _status, username) 
-VALUES ('john', 'wick', 'm', 'Bolton', 'online', 1);
+INSERT INTO user_detail (first_name, last_name, gender, location, _status, username, profile_img) 
+VALUES ('john', 'wick', 'm', 'Bolton', 'online', 1, 'https://www.aspentrading.com/wp-content/uploads/dave-floyd-head-shot-12.19.2016-300x300.png');
 
 /* hobby */
 INSERT INTO hobby (hobby) 
