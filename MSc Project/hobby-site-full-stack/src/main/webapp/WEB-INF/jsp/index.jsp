@@ -36,12 +36,12 @@
                                     <br />
                                     <br />
                                     <fieldset style="text-align: center;">
-                                        <label for="uname"><b><h3>Username</h3></b></label>
-                                        <input id="userInput" type="text" name="uname" style="margin-right: 7px;" placeholder="Click here to enter Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to enter Username'">
+                                        <label for="username"><b><h3>Username</h3></b></label>
+                                        <input id="userInput" type="text" name="username" style="margin-right: 7px;" placeholder="Click here to enter Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to enter Username'">
                                         <br />
                                         <br />
-                                        <label for="pwd"><b><h3>Password</h3></b></label>
-                                        <input id="userInput" type="password" name="pwd" placeholder="Click here to enter Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to enter Password'">
+                                        <label for="password"><b><h3>Password</h3></b></label>
+                                        <input id="userInput" type="password" name="password" placeholder="Click here to enter Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Click here to enter Password'">
                                         <br/>
                                         <br />
                                         <br />

@@ -26,8 +26,9 @@ public class LoginController {
 		final Gson gson = new Gson();
 		// Convert received JSON data into Film object
 		UserLogin jsonObjectFromServer = gson.fromJson(postPayload, UserLogin.class);
+		System.out.println(postPayload);
 		System.out.println(jsonObjectFromServer.toString());
-		System.out.println(userLoginDAO.getUser(jsonObjectFromServer.getUsername()));
+		System.out.println(jsonObjectFromServer.getUsername());
 		
 		// Response headers
 		response.setContentType("text/html");
