@@ -265,6 +265,29 @@
         </div>
 </body>
 <script>
+				console.log('gucci');
+				//Create profiles from AJAX
+				function readFilmByTitle(a, b){
+        	 var userInput = $("#title").val();
+        	 var url = "http://localhost:8080/hobby-site/profiles";
+        	 var results;
+        	 $.ajax({
+																	console.log('here');
+                 type: 'GET',
+                 url: url,
+                 cache: false,
+                 success: function (result) {
+																		console.log(JSON.stringify(result));
+                  results = result;
+                 },
+                 error: function(xhr,status,error) {
+                   console.log(error);
+                 },
+                 complete:function(){
+                 	console.log('AJAX request success!')
+               });
+         }
+									
     const divs = [...document.querySelectorAll("a")]
     let parentContainer = document.getElementById("all-profiles-holder");
 
