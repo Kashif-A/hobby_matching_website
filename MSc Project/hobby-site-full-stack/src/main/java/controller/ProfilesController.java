@@ -23,9 +23,6 @@ public class ProfilesController {
 	public String profilesJSON() {
 		dao.UserDAO userDAO = new dao.UserDAOImpl();
 		List<User> list = userDAO.listUsers();
-		for(int i=0; i < list.size(); i++) {
-			System.out.println(list.get(i));
-		}
 		Gson gson = new Gson();
 		return gson.toJson(list);
     }

@@ -287,9 +287,6 @@
                  	console.log('AJAX request success!')
                });
          }
-									
-    const divs = [...document.querySelectorAll("a")]
-    let parentContainer = document.getElementById("all-profiles-holder");
 
     function search() {
         const input = document.getElementById("userInput").value
