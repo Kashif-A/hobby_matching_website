@@ -28,9 +28,9 @@ public class UserLoginImpl implements UserLoginDAO {
 		Session session = sessionFactory.openSession();
 		List<UserLogin> user = new ArrayList<UserLogin>();	
 		session.beginTransaction();
+		System.out.println(username);
 		try {
-			Query queryObject = session.createQuery("from model.UserLogin where username = :username");
-			//where username like '%" + username + "%'"
+			Query<UserLogin> queryObject = session.createQuery("from model.UserLogin where username like '%" + username + "%'");
 			user = queryObject.list();
 		} catch (NoResultException e) {
 			System.out.println(e);
@@ -40,9 +40,10 @@ public class UserLoginImpl implements UserLoginDAO {
 			session.close();
 		}
 		for (UserLogin u : user) {
-			System.out.println(u);
+			System.out.println(u.toString());
 		}
-		System.out.println(user);
+		System.out.println(user.get(0));
+		System.out.println("yo");
 	}
 
 	@Override
