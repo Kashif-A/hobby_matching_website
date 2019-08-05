@@ -1,5 +1,10 @@
 package dao;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.NoResultException;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -19,18 +24,25 @@ public class UserLoginImpl implements UserLoginDAO {
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public UserLogin getUser(String username) {
+	public void getUser(String username) {
 		Session session = sessionFactory.openSession();
-		UserLogin user = new UserLogin();	
+		List<UserLogin> user = new ArrayList<UserLogin>();	
 		session.beginTransaction();
-		Query<UserLogin> queryObject = session.createQuery("from UserLogin");
-		 //where username like '%" + username + "%'"
-		user = queryObject.getSingleResult();
+		try {
+			Query queryObject = session.createQuery("from model.UserLogin where username = :username");
+			//where username like '%" + username + "%'"
+			user = queryObject.list();
+		} catch (NoResultException e) {
+			System.out.println(e);
+		}
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
 			session.close();
 		}
-		return user;
+		for (UserLogin u : user) {
+			System.out.println(u);
+		}
+		System.out.println(user);
 	}
 
 	@Override

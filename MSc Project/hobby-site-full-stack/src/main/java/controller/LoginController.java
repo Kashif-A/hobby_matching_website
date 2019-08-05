@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -22,11 +24,14 @@ public class LoginController {
 	UserLoginImpl userLoginDAO = new UserLoginImpl();
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(@RequestBody String postPayload, HttpServletResponse response, HttpServletRequest request) {
+	public void login(@RequestBody String postPayload, HttpServletResponse response, HttpServletRequest request) {
 		final Gson gson = new Gson();
 		// Convert received JSON data into Film object
 		UserLogin jsonObjectFromServer = gson.fromJson(postPayload, UserLogin.class);
-		System.out.println(postPayload);
+		userLoginDAO.getUser(jsonObjectFromServer.getUsername());
+		//List<UserLogin> userFromDB = userLoginDAO.getUser(jsonObjectFromServer.getUsername());
+		
+		/*System.out.println(postPayload);
 		System.out.println(jsonObjectFromServer.toString());
 		System.out.println(jsonObjectFromServer.getUsername());
 		
@@ -37,6 +42,6 @@ public class LoginController {
 		response.setHeader("Access-Control-Allow-Origin", request.getHeader("Origin"));
 		response.setHeader("Cache-Control", "no-cache");
 		response.setHeader("Pragma", "no-cache");
-		return "{ \"SERVER RESPONSE\":\"Successfully received JSON object and added film with name }";
+		return "{ \"SERVER RESPONSE\":\"Successfully received JSON object and added film with name }";*/
     }
 }

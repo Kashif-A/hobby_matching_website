@@ -7,7 +7,7 @@ import model.UserLogin;
 @Repository
 public interface UserLoginDAO {
 	    
-	    public UserLogin getUser(String username);
+	    public void getUser(String username);
 	    
 	    public void addUserLogin(UserLogin userLogin);
 	    	    	    

@@ -48,6 +48,12 @@
   </dependencyManagement>
 
   <dependencies>
+  	<!-- PBKDF2 dependency -->
+  	<dependency>
+        <groupId>commons-codec</groupId>
+        <artifactId>commons-codec</artifactId>
+        <version>1.9</version>
+    </dependency>
     <!-- Compile/runtime dependencies -->
     <dependency>
       <groupId>javax.servlet</groupId>
