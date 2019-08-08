@@ -16,26 +16,26 @@ public class UserLogin {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
-	int id;
+	private int user_id;
 	@Column(name="username")
-	String username;
+	private String username;
 	@Column(name="password")
-	String password;
-	
-	public UserLogin() {}
+	private String password;
 
+	public UserLogin() {}
+	
 	public UserLogin(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
 	}
 
-	public int getId() {
-		return id;
+	public int getUser_id() {
+		return user_id;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
 	}
 
 	public String getUsername() {
@@ -56,6 +56,7 @@ public class UserLogin {
 
 	@Override
 	public String toString() {
-		return "UserLogin [id=" + id + ", username=" + username + ", password=" + password + "]";
+		return "UserLogin [user_id=" + user_id + ", username=" + username + ", password=" + password + "]";
 	}
+	
 }

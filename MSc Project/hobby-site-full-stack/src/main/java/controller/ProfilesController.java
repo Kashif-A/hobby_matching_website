@@ -21,7 +21,7 @@ public class ProfilesController {
 	@RequestMapping(value = "/profilesJSON", method = RequestMethod.GET)
 	@ResponseBody
 	public String profilesJSON() {
-		dao.UserDAO userDAO = new dao.UserDAOImpl();
+		dao.UserDAO userDAO = new dao.UserDAO();
 		List<User> list = userDAO.listUsers();
 		Gson gson = new Gson();
 		return gson.toJson(list);
