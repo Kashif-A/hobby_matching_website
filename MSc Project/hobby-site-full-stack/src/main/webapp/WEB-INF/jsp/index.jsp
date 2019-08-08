@@ -68,43 +68,4 @@
                 }
             } 
         </script>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-		<script type="text/javascript">
-         // Transform the Form Inputs into JSON object and send it to server
-         // to add film using the JSON object.
-         $( "#LoginForm" ).submit(function( event ) {
-          	event.preventDefault();
-          	var $form = $( this ),
-            url = $form.attr( "action" );
-          
-         	var formDataAsJsonArray = $("#LoginForm").serializeArray();
-            var finalJSONArray = {};
-            
-            $.each(formDataAsJsonArray, function() {
-            	finalJSONArray[this.name] = this.value || '';
-            });
-         var JSONForServer = JSON.stringify(finalJSONArray);
-         console.log(JSONForServer);
-         console.log(url);
-         
-         // AJAX Post call.
-         $.ajax({
-            type: 'POST',
-            url: url,
-            cache: false,
-            data: JSONForServer,
-            dataType: "json",
-            contentType: "application/json; charset=utf-8;",
-            success: function (result) {
-             	console.log(result);
-            },
-            error: function(xhr,status,error) {
-              console.log(error);
-            },
-            complete:function(){
-            	console.log('AJAX POST request successfully completed!')
-            }
-          });
-         }); 
-   	  </script>
        </html>
