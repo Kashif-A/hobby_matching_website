@@ -22,17 +22,20 @@ public class ProfilesController {
 	
 	@RequestMapping(value = "/profiles", method = RequestMethod.GET)
 	@ResponseBody
-	public String profiles() {
+	public ModelAndView profiles() {
 		Gson gson = new Gson();
 		List<User> list = null;
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = requestAttributes.getRequest().getSession();
+		ModelAndView loggedInModelAndView = new ModelAndView("/profiles/profiles");
 		if(session.getAttribute("authenticated") != null) {
 			dao.UserDAO userDAO = new dao.UserDAO();
 			list = userDAO.listUsers();
+			String jsonList = gson.toJson(list);
+			loggedInModelAndView.addObject("json", jsonList);
 		} else {
-			return "Incorrect Username";
+			return new ModelAndView("/profiles/test");
 		}
-		return gson.toJson(list);
+		return loggedInModelAndView;
     }
 }
