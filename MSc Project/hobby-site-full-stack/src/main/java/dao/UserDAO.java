@@ -31,7 +31,9 @@ public class UserDAO {
 		session.beginTransaction();	
 		Query<User> query = session.createQuery("FROM model.User");
 		allUsers = query.list();
-		getHobbies();
+		for(User user : allUsers) {
+			getHobbies(user.getUser_id());
+		}
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
 			session.close();
@@ -53,39 +55,21 @@ public class UserDAO {
 		return searchedUsers;
 	}
 	
-	private Object getHobbies(){
+	private Object getHobbies(int userId){
 		Session session = sessionFactory.openSession();
-		//List<String> hobbies = new ArrayList<String>();	
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
-		List<Object[]> hobbies = session.createNativeQuery(""
-			+ "SELECT msc.user_detail.id, \r\n" + 
-			"			msc.user_detail.username, \r\n" + 
-			"			msc.user_hobby.hobby_fk,\r\n" + 
-			"			msc.user_hobby.user_fk,\r\n" + 
-			"			msc.hobby.hobby \r\n" + 
-			"            FROM user_detail\r\n" + 
-			"				INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk\r\n" + 
-			"				INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk\r\n" + 
-			"                WHERE msc.user_detail.id = 1").getResultList();
-		for (Object[] a : hobbies) {
-			for (Field field : a[0].getClass().getDeclaredFields()) {
-			    field.setAccessible(true); // You might want to set modifier to public first.
-			    Object value;
-				try {
-					value = field.get(a[0]);
-					if (value != null) {
-				        System.out.println(field.getName() + "=" + value);
-				    } else {
-				    	System.out.println("NULL");
-				    }
-				} catch (IllegalArgumentException e) {
-					System.out.println(e);
-				} catch (IllegalAccessException e) {
-					System.out.println(e);
-				} 
-			}
-		}
+		List<Integer> d = session.createNativeQuery("" +
+				"SELECT msc.user_authentication.id FROM msc.user_authentication\r\n" + 
+				"  WHERE msc.user_authentication.username = " + userId).getResultList();
+		System.out.println(d.toString());
+		List<String> hobbies = session.createNativeQuery(""
+			+ "SELECT msc.hobby.hobby \r\n" + 
+			"  FROM user_detail\r\n" + 
+			"  INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk\r\n" + 
+			"  INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk\r\n" + 
+			"  WHERE msc.user_detail.id =" + d).getResultList();
+		System.out.println(hobbies.get(0));
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
 			session.close();
