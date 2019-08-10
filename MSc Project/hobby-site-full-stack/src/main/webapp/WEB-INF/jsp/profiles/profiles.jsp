@@ -51,7 +51,6 @@
         		 console.log(profiles)
 	          	let mainDiv = document.getElementById('all-profiles-holder')
 	          	profiles.map((profile) => {
-	          		console.log(profile)
 	          		let anchorTag = document.createElement('a')
 		          	let profileContainerDiv = document.createElement('div')
 		          	let profileImg = document.createElement('img')
@@ -65,7 +64,6 @@
 		          	let paragraphName = document.createElement('p')
 		          	let h5 = document.createElement('h5')
 		          	let ul = document.createElement('ul')
-		          	let li = document.createElement('li')
 		          	
 		          	profileContainerDiv.className = "profile-container"
 		          	profileImg.className = "profile-image"
@@ -87,9 +85,7 @@
 		          	paragraphLocation.innerHTML = profile.location
 		          	paragraphName.innerHTML = profile.first_name
 		          	h5.innerHTML = "Hobbies & Interests"
-		          	li.innerHTML = "Movies"
-		          	
-		          	ul.append(li)
+
 		          	profileInfoDiv.append(paragraphStatus)
 		          	profileInfoDiv.append(locationImg)
 		          	profileInfoDiv.append(paragraphLocation)
@@ -104,6 +100,13 @@
 		          	profileContainerDiv.append(profileInfoDiv)
 		          	anchorTag.append(profileContainerDiv)
 		          	mainDiv.append(anchorTag)
+		          	
+		          	profile.hobbies.map((hobby) => {
+		          		console.log(hobby)
+		          		let li = document.createElement('li')
+		          		li.innerHTML = hobby
+		          		ul.append(li)
+		          	})
 	          	})
 	          })()
 	
