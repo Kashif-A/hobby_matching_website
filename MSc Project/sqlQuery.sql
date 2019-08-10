@@ -59,3 +59,12 @@ INSERT INTO user_hobby (hobby_fk, user_fk)
 VALUES (1, 1);
 INSERT INTO user_hobby (hobby_fk, user_fk) 
 VALUES (2, 1);
+
+SELECT hobby FROM
+	(SELECT msc.user_detail.id, 
+		   msc.user_detail.username, 
+		   msc.user_hobby.hobby_fk,
+		   msc.user_hobby.user_fk,
+		   msc.hobby.hobby FROM user_detail 
+				INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk
+				INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk) AS test;

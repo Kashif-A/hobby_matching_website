@@ -40,280 +40,94 @@
                             </div>
                         </div>
                         <br />
-                        <div class="all-profiles-holder" id="all-profiles-holder">
-                            <!-- profile container -->
-                            <a href="./IP/owen.html" id="Reading Movies Parks">
-                                <div class="profile-container">
-                                    <img src="../pics/6.jpg" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: green; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>ONLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Bradford</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Owen</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> Reading</li>
-                                            <li> Movies</li>
-                                            <li> Parks</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Painting Bowling Golf">
-                                <div class="profile-container">
-                                    <img src="../pics/f1.png" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: red; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>OFFLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Manchester</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Joanna</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Painting</li>
-                                            <li> &nbsp Bowling</li>
-                                            <li> &nbsp Golf</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Swimming Tennis Cooking">
-                                <div class="profile-container">
-                                    <img src="../pics/f2.png" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: green; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>ONLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Leigh</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Laura</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Swimming</li>
-                                            <li> &nbsp Tennis</li>
-                                            <li> &nbsp Cooking</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Dog Friends Chatting">
-                                <div class="profile-container">
-                                    <img src="../pics/f3.png" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: red; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>OFFLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Stockport</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Alice</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Dog walking</li>
-                                            <li> &nbsp Friends</li>
-                                            <li> &nbsp Chatting</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Internet Youtube Movies">
-                                <div class="profile-container">
-                                    <img src="../pics/f4.png" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: green; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>ONLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Manchester</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Susan</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Browsing web</li>
-                                            <li> &nbsp Youtube</li>
-                                            <li> &nbsp Movies</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="./IP/mark.html" id="Movies Parks Reading">
-                                <div class="profile-container">
-                                    <img src="../pics/5.jpg" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: green; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>ONLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Altrincham</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Mark</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Movies</li>
-                                            <li> &nbsp Parks</li>
-                                            <li> &nbsp Reading</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Golf Painting Bowling">
-                                <div class="profile-container">
-                                    <img src="../pics/1.jpg" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: red; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>OFFLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Bradford</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Jones</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Golf</li>
-                                            <li> &nbsp Painting</li>
-                                            <li> &nbsp Bowling</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Swimming Cooking Tennis">
-                                <div class="profile-container">
-                                    <img src="../pics/f5.png" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: green; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>ONLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Hyde</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Kirsty</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Swimming</li>
-                                            <li> &nbsp Cooking</li>
-                                            <li> &nbsp Tennis</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Friends Chatting Dog">
-                                <div class="profile-container">
-                                    <img src="../pics/3.jpg" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: red; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>OFFLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Salford</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Ben</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Friends</li>
-                                            <li> &nbsp Chatting</li>
-                                            <li> &nbsp Dog walking</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-
-                            <!-- profile container -->
-                            <a href="individual-profile.html" id="Movies Youtube Internet">
-                                <div class="profile-container">
-                                    <img src="../pics/2.png" class="profile-image">
-                                    <div class="profile-info">
-                                        <p style="color: green; text-align: left; font-size: 20px; margin-bottom: 20px;"><strong>ONLINE</strong></p>
-                                        <img src="../location.png" height=20 style="float: left; margin-top: -7px; margin-right: 5px;" />
-                                        <p style="float: left; font-size: 18px;"><strong>Rochdale</strong></p>
-                                        <br />
-                                        <br />
-                                        <p style="float: left;">Kevin</p>
-                                        <br />
-                                        <h5>Hobbies & Interests</h5>
-                                        <ul>
-                                            <li> &nbsp Movies</li>
-                                            <li> &nbsp Youtube</li>
-                                            <li> &nbsp Browsing web</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                        <div class="all-profiles-holder" id="all-profiles-holder"></div>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
         </body>
-        <script>
-            var profiles = $ {
-                json
-            }
-            console.log(profiles)
-                //Create profiles from AJAX
-            function readFilmByTitle(a, b) {
-                var userInput = $("#title").val();
-                var url = "http://localhost:8080/hobby-site/profiles";
-                var results;
-                $.ajax({
-                        console.log('here');
-                        type: 'GET',
-                            url: url,
-                            cache: false,
-                            success: function(result) {
-                                console.log(JSON.stringify(result));
-                                results = result;
-                            },
-                            error: function(xhr, status, error) {
-                                console.log(error);
-                            },
-                            complete: function() {
-                                console.log('AJAX request success!')
-                            });
-                }
-
-                function search() {
-                    const input = document.getElementById("userInput").value
-                    while (parentContainer.firstChild) {
-                        parentContainer.removeChild(parentContainer.firstChild);
-                    }
-                    divs.map(e => {
-                        console.log(e);
-                        if (e.id && e.id.toLowerCase().includes(input.toLowerCase())) {
-                            parentContainer.appendChild(e);
-                        }
-                    });
-                }
-
-                document.getElementById("userInput").onkeydown = function checkIfEmpty() {
-                    console.log(divs);
-                    var key = event.keyCode || event.charCode;
-                    if (key == 8 || key == 46) {
-                        if (document.getElementById("userInput").value === "") {
-                            window.location.reload();
-                        }
-                    }
-                }
+        <script>      
+        	 (function populateProfiles(){
+        		 var profiles = ${json}
+	          	let mainDiv = document.getElementById('all-profiles-holder')
+	          	profiles.map((profile) => {
+	          		console.log(profile)
+	          		let anchorTag = document.createElement('a')
+		          	let profileContainerDiv = document.createElement('div')
+		          	let profileImg = document.createElement('img')
+		          	let profileInfoDiv = document.createElement('div')
+		          	let paragraphStatus = document.createElement('p')
+		          	let locationImg = document.createElement('img')
+		          	let paragraphLocation = document.createElement('p')
+		          	let breakOne = document.createElement('br')
+		          	let breakTwo = document.createElement('br')
+		          	let breakThree = document.createElement('br')
+		          	let paragraphName = document.createElement('p')
+		          	let h5 = document.createElement('h5')
+		          	let ul = document.createElement('ul')
+		          	let li = document.createElement('li')
+		          	
+		          	profileContainerDiv.className = "profile-container"
+		          	profileImg.className = "profile-image"
+		          	profileInfoDiv.className = "profile-info"
+		          	paragraphStatus.style.color = "green"
+		         	paragraphStatus.style.textAlign = "left"
+		       		paragraphStatus.style.fontSize = "20px"
+		       		paragraphStatus.style.marginBottom = "20px"
+		       		profileImg.style.cssFloat = "left"
+		       		profileImg.style.marginTop = "-7px"
+		       		profileImg.style.marginRight = "5px"
+		       		paragraphLocation.style.cssFloat = "left"
+		       		paragraphLocation.style.fontSize = "18px"
+		       		paragraphName.style.cssFloat = "left"
+		          	
+		          	profileImg.href = profile.profile_img
+		          	paragraphStatus.innerHTML = profile.status
+		          	locationImg.href = "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/location-128.png"
+		          	paragraphLocation.innerHTML = profile.location
+		          	paragraphName.innerHTML = profile.first_name
+		          	h5.innerHTML = "Hobbies & Interests"
+		          	li.innerHTML = "Movies"
+		          	
+		          	ul.append(li)
+		          	profileInfoDiv.append(paragraphStatus)
+		          	profileInfoDiv.append(locationImg)
+		          	profileInfoDiv.append(paragraphLocation)
+		          	profileInfoDiv.append(breakOne)
+		          	profileInfoDiv.append(breakTwo)
+		          	profileInfoDiv.append(paragraphName)
+		          	profileInfoDiv.append(breakThree)
+		          	profileInfoDiv.append(h5)
+		          	profileInfoDiv.append(ul)
+		          	
+		          	profileContainerDiv.append(profileImg)
+		          	profileContainerDiv.append(profileInfoDiv)
+		          	anchorTag.append(profileContainerDiv)
+		          	mainDiv.append(anchorTag)
+	          	})
+	          })()
+	
+	          function search() {
+	              const input = document.getElementById("userInput").value
+	              while (parentContainer.firstChild) {
+	                  parentContainer.removeChild(parentContainer.firstChild);
+	              }
+	              divs.map(e => {
+	                  console.log(e);
+	                  if (e.id && e.id.toLowerCase().includes(input.toLowerCase())) {
+	                      parentContainer.appendChild(e);
+	                  }
+	              });
+	          }
+	
+	          document.getElementById("userInput").onkeydown = function checkIfEmpty() {
+	              console.log(divs);
+	              var key = event.keyCode || event.charCode;
+	              if (key == 8 || key == 46) {
+	                  if (document.getElementById("userInput").value === "") {
+	                      window.location.reload();
+	                  }
+	              }
+	          }
         </script>
 
         </html>

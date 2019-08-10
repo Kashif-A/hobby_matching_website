@@ -16,6 +16,7 @@ import com.google.gson.Gson;
 
 import model.User;
 import model.UserLogin;
+import util.AuthenticatedSession;
 
 @Controller
 public class ProfilesController {
@@ -31,6 +32,7 @@ public class ProfilesController {
 		if(session.getAttribute("authenticated") != null) {
 			dao.UserDAO userDAO = new dao.UserDAO();
 			list = userDAO.listUsers();
+			AuthenticatedSession s = (AuthenticatedSession) session.getAttribute("authenticated");
 			String jsonList = gson.toJson(list);
 			loggedInModelAndView.addObject("json", jsonList);
 		} else {

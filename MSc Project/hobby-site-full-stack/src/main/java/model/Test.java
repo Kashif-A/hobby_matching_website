@@ -16,7 +16,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Entity
 @Table(name="user_detail")
-public class User {
+public class Test {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "id", updatable = false, nullable = false)
@@ -38,9 +38,9 @@ public class User {
 	@Transient
 	private List<String> hobbies;
 	
-	public User() {}
+	public Test() {}
 
-	public User(String first_name, 
+	public Test(String first_name, 
 				String last_name, 
 				String gender,
 				String location, 

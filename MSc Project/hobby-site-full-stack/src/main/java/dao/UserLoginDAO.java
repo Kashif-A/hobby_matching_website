@@ -12,14 +12,14 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import config.HibernateSessionFactory2;
+import config.HibernateSessionFactory;
 import model.UserLogin;
 
 @Repository
 public class UserLoginDAO {
 	
 	@Qualifier("sessionFactory")
-	SessionFactory sessionFactory = HibernateSessionFactory2.getSingletonSessionFactory();
+	SessionFactory sessionFactory = HibernateSessionFactory.getSingletonSessionFactory();
 
 	// Default constructor
 	public UserLoginDAO() {}
@@ -41,17 +41,17 @@ public class UserLoginDAO {
 	@SuppressWarnings({ "unchecked", "deprecation" })
 	public UserLogin getUser(String username){
 		Session session = sessionFactory.openSession();
-		UserLogin searchedFilm = new UserLogin();	
+		UserLogin searchedUser = new UserLogin();	
 		session.beginTransaction();
 		Query<UserLogin> queryObject = session.createQuery("from UserLogin U where username = :username ");
 		queryObject.setString("username", username);
 		try {
-			searchedFilm = queryObject.getSingleResult();
+			searchedUser = queryObject.getSingleResult();
 			session.getTransaction().commit();
 			if (session.getTransaction() != null) {
 				session.close();
 			}
-			return searchedFilm;
+			return searchedUser;
 		} catch(NoResultException ex) {
 			return null;
 		}
@@ -78,10 +78,10 @@ public class UserLoginDAO {
 			if(user != null){
 				session.delete(user);
 				session.getTransaction().commit();
-				return "Film with id " + user.getUser_id() + " successfully deleted!";
+				return "User with id " + user.getUser_id() + " successfully deleted!";
 			}
 		} catch (EntityNotFoundException e) {
-			noEntityFound = "No film with that id exists";
+			noEntityFound = "No User with that id exists";
 			session.close();
 		}
 		return noEntityFound;

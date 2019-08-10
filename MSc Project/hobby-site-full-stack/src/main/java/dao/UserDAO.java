@@ -1,5 +1,6 @@
 package dao;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,14 +12,14 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Repository;
 
-import config.HibernateSessionFactory2;
+import config.HibernateSessionFactory;
 import model.User;
 
 @Repository
 public class UserDAO {
 	
 	@Qualifier("sessionFactory")
-	SessionFactory sessionFactory = HibernateSessionFactory2.getSingletonSessionFactory();
+	SessionFactory sessionFactory = HibernateSessionFactory.getSingletonSessionFactory();
 
 	// Default constructor
 	public UserDAO() {}
@@ -30,6 +31,7 @@ public class UserDAO {
 		session.beginTransaction();	
 		Query<User> query = session.createQuery("FROM model.User");
 		allUsers = query.list();
+		getHobbies();
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
 			session.close();
@@ -40,15 +42,55 @@ public class UserDAO {
 	@SuppressWarnings("unchecked")
 	public List<User> getUser(int userID){
 		Session session = sessionFactory.openSession();
-		List<User> searchedFilm = new ArrayList<User>();	
+		List<User> searchedUsers = new ArrayList<User>();	
 		session.beginTransaction();
 		Query<User> queryObject = session.createQuery("from User where user_id like '%" + userID + "%'");
-		searchedFilm = queryObject.list();
+		searchedUsers = queryObject.list();
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
 			session.close();
 		}
-		return searchedFilm;
+		return searchedUsers;
+	}
+	
+	private Object getHobbies(){
+		Session session = sessionFactory.openSession();
+		//List<String> hobbies = new ArrayList<String>();	
+		session.beginTransaction();
+		@SuppressWarnings("unchecked")
+		List<Object[]> hobbies = session.createNativeQuery(""
+			+ "SELECT msc.user_detail.id, \r\n" + 
+			"			msc.user_detail.username, \r\n" + 
+			"			msc.user_hobby.hobby_fk,\r\n" + 
+			"			msc.user_hobby.user_fk,\r\n" + 
+			"			msc.hobby.hobby \r\n" + 
+			"            FROM user_detail\r\n" + 
+			"				INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk\r\n" + 
+			"				INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk\r\n" + 
+			"                WHERE msc.user_detail.id = " + 2).getResultList();
+		for (Object[] a : hobbies) {
+			for (Field field : a[0].getClass().getDeclaredFields()) {
+			    field.setAccessible(true); // You might want to set modifier to public first.
+			    Object value;
+				try {
+					value = field.get(a[0]);
+					if (value != null) {
+				        System.out.println(field.getName() + "=" + value);
+				    } else {
+				    	System.out.println("NULL");
+				    }
+				} catch (IllegalArgumentException e) {
+					System.out.println(e);
+				} catch (IllegalAccessException e) {
+					System.out.println(e);
+				} 
+			}
+		}
+		session.getTransaction().commit();
+		if (session.getTransaction() != null) {
+			session.close();
+		}
+		return hobbies;
 	}
 
 	public void addUser(User user) {
@@ -72,10 +114,10 @@ public class UserDAO {
 			if(user != null){
 				session.delete(user);
 				session.getTransaction().commit();
-				return "Film with id " + user.getUser_id() + " successfully deleted!";
+				return "User with id " + user.getUser_id() + " successfully deleted!";
 			}
 		} catch (EntityNotFoundException e) {
-			noEntityFound = "No film with that id exists";
+			noEntityFound = "No User with that id exists";
 			session.close();
 		}
 		return noEntityFound;
