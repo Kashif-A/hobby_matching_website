@@ -48,6 +48,7 @@
         <script>      
         	 (function populateProfiles(){
         		 var profiles = ${json}
+        		 console.log(profiles)
 	          	let mainDiv = document.getElementById('all-profiles-holder')
 	          	profiles.map((profile) => {
 	          		console.log(profile)

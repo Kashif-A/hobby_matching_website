@@ -43,8 +43,12 @@ CREATE TABLE IF NOT EXISTS user_hobby (
 /* user_authentication */
 INSERT INTO user_authentication (username, password) 
 VALUES ('username', 'password');
+INSERT INTO user_authentication (username, password) 
+VALUES ('john', 'wick');
 
 /* user_detail */
+INSERT INTO user_detail (first_name, last_name, gender, location, _status, username, profile_img) 
+VALUES ('username', 'password', 'm', 'Bolton', 'online', 1, 'https://www.aspentrading.com/wp-content/uploads/dave-floyd-head-shot-12.19.2016-300x300.png');
 INSERT INTO user_detail (first_name, last_name, gender, location, _status, username, profile_img) 
 VALUES ('john', 'wick', 'm', 'Bolton', 'online', 1, 'https://www.aspentrading.com/wp-content/uploads/dave-floyd-head-shot-12.19.2016-300x300.png');
 
@@ -53,18 +57,32 @@ INSERT INTO hobby (hobby)
 VALUES ('reading');
 INSERT INTO hobby (hobby) 
 VALUES ('swimming');
+INSERT INTO hobby (hobby) 
+VALUES ('music');
 
 /* user_hobby */
 INSERT INTO user_hobby (hobby_fk, user_fk) 
 VALUES (1, 1);
 INSERT INTO user_hobby (hobby_fk, user_fk) 
 VALUES (2, 1);
+INSERT INTO user_hobby (hobby_fk, user_fk) 
+VALUES (3, 1);
+INSERT INTO user_hobby (hobby_fk, user_fk) 
+VALUES (3, 2);
 
-SELECT hobby FROM
-	(SELECT msc.user_detail.id, 
-		   msc.user_detail.username, 
-		   msc.user_hobby.hobby_fk,
-		   msc.user_hobby.user_fk,
-		   msc.hobby.hobby FROM user_detail 
-				INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk
-				INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk) AS test;
+/* select statements */
+SELECT * FROM msc.hobby;
+SELECT * FROM msc.user_authentication;
+SELECT * FROM msc.user_detail;
+SELECT * FROM msc.user_hobby;
+
+SELECT msc.hobby.hobby
+	FROM user_detail
+		INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk
+		INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk
+		WHERE msc.user_detail.id = (
+			 SELECT msc.user_authentication.id FROM msc.user_authentication
+				WHERE msc.user_authentication.id = 1
+		);
+        
+SELECT msc.user_authentication.id FROM msc.user_authentication WHERE msc.user_authentication.id = 1;
