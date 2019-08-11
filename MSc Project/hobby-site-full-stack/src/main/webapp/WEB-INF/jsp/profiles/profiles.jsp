@@ -60,39 +60,36 @@
 		          	let paragraphLocation = document.createElement('p')
 		          	let breakOne = document.createElement('br')
 		          	let breakTwo = document.createElement('br')
-		          	let breakThree = document.createElement('br')
 		          	let paragraphName = document.createElement('p')
 		          	let h5 = document.createElement('h5')
 		          	let ul = document.createElement('ul')
 		          	
+		          	locationImg.className = "location-img"
 		          	profileContainerDiv.className = "profile-container"
 		          	profileImg.className = "profile-image"
 		          	profileInfoDiv.className = "profile-info"
 		          	paragraphStatus.style.color = "green"
 		         	paragraphStatus.style.textAlign = "left"
 		       		paragraphStatus.style.fontSize = "20px"
-		       		paragraphStatus.style.marginBottom = "20px"
-		       		profileImg.style.cssFloat = "left"
-		       		profileImg.style.marginTop = "-7px"
-		       		profileImg.style.marginRight = "5px"
+		       		paragraphStatus.style.marginBottom = "10px"
 		       		paragraphLocation.style.cssFloat = "left"
-		       		paragraphLocation.style.fontSize = "18px"
-		       		paragraphName.style.cssFloat = "left"
+		       		paragraphLocation.style.fontSize = "20px"
+		       		paragraphLocation.style.marginTop= "10px"
+		       		paragraphName.style.fontSize = "25px"
 		          	
-		          	profileImg.href = profile.profile_img
+		          	profileImg.src = profile.profile_img
 		          	paragraphStatus.innerHTML = profile.status
-		          	locationImg.href = "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/location-128.png"
+		          	locationImg.src = "https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/location-128.png"
 		          	paragraphLocation.innerHTML = profile.location
 		          	paragraphName.innerHTML = profile.first_name
 		          	h5.innerHTML = "Hobbies & Interests"
 
+		          	profileInfoDiv.append(paragraphName)
 		          	profileInfoDiv.append(paragraphStatus)
 		          	profileInfoDiv.append(locationImg)
 		          	profileInfoDiv.append(paragraphLocation)
 		          	profileInfoDiv.append(breakOne)
 		          	profileInfoDiv.append(breakTwo)
-		          	profileInfoDiv.append(paragraphName)
-		          	profileInfoDiv.append(breakThree)
 		          	profileInfoDiv.append(h5)
 		          	profileInfoDiv.append(ul)
 		          	
