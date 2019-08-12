@@ -43,16 +43,12 @@ public class User {
 	public User(String first_name, 
 				String last_name, 
 				String gender,
-				String location, 
-				String status, 
-				String profile_img) {
+				String location) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.gender = gender;
 		this.location = location;
-		this.status = status;
-		this.profile_img = profile_img;
 	}
 
 	public int getUser_id() {
