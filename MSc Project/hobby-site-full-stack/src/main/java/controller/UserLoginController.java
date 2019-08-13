@@ -24,6 +24,7 @@ import com.google.gson.Gson;
 
 import model.UserLogin;
 import util.GetSession;
+import util.PBKDF2PasswordHash;
 
 @Controller
 public class UserLoginController {
@@ -35,15 +36,17 @@ public class UserLoginController {
 		Gson gson = new Gson();
 		dao.UserLoginDAO userDAO = new dao.UserLoginDAO();
 		UserLogin userFromDB = userDAO.getUser(userFromRequestBody.getUsername());
-		String DBUsername = "";
+		String DBPassword = "";
 		if(userFromDB != null) {
-			DBUsername = userFromDB.getUsername();
-			if(DBUsername.equals(userFromRequestBody.getUsername())) {
-			    HttpSession sesh = session.getSession(DBUsername);
+			PBKDF2PasswordHash hashPwd = new PBKDF2PasswordHash();
+			DBPassword = userFromDB.getPassword();
+			if(DBPassword.equals(hashPwd.hashPassword(userFromRequestBody.getPassword()))) {
+			    HttpSession sesh = session.getSession(userFromRequestBody.getUsername());
 			    return new ModelAndView("redirect:/profiles");
 			}
 		} else {
 			System.out.println("unmatched");
+			return new ModelAndView("redirect:/");
 		}
 		return new ModelAndView("redirect:/login");
     }

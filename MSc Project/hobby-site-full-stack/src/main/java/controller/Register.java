@@ -30,6 +30,7 @@ import dao.UserLoginDAO;
 import model.User;
 import model.UserLogin;
 import util.GetSession;
+import util.PBKDF2PasswordHash;
 
 @Controller
 public class Register {
@@ -43,6 +44,7 @@ public class Register {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String loginGet(WebRequest request) {
+		GetSession session = new GetSession();
 		String gender = "";
 		if(request.getParameter("male") != null) {
 			gender = "male";
@@ -55,13 +57,22 @@ public class Register {
 							 request.getParameter("location"),
 							 "test");
 		UserLogin userLogin = new UserLogin(request.getParameter("username"),
-											request.getParameter("password"));
-		System.out.println(user.toString());
-		System.out.println(userLogin.toString());
-		userLoginDAO.addUser(userLogin);
-		int userID = userLoginDAO.getUser(request.getParameter("username")).getUser_id();
-		user.setUsername(userID);
-		userDAO.addUser(user);
-		return "/profiles/register";
+											hashPassword(request.getParameter("password")));
+		try {
+			userLoginDAO.addUser(userLogin);
+			int userID = userLoginDAO.getUser(request.getParameter("username")).getUser_id();
+			user.setUsername(userID);
+			userDAO.addUser(user);
+			session.getSession(userLogin.getUsername());
+			return "/profiles/profiles";
+		} catch (Exception ex) {
+			return "profiles/register";
+		}
+		
     }
+	
+	private String hashPassword(String password) {
+		PBKDF2PasswordHash hashPwd = new PBKDF2PasswordHash();
+		return hashPwd.hashPassword(password);
+	}
 }
