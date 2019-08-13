@@ -48,6 +48,9 @@
                                         <button type="submit" class="btn btn-primary" style="background-color: #171e75; border: 3px solid white;">
                                             <h2 style="margin-top: -2px;"><strong>Login Button</strong></h2>
                                         </button>
+                                        <a style="margin-left:30px; background-color: #171e75; border: 3px solid white;" href="/hobby-site/register" class="btn btn-primary">
+                                            <h2 style="margin-top: -2px;"><strong>Register</strong></h2>
+                                        </a>
                                     </fieldset>
                                 </form>
                             </div>

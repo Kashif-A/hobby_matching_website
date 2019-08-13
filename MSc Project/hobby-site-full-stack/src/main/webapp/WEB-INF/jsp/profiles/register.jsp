@@ -41,10 +41,10 @@
     <label for="lastname">Last Name</label>
     <input type="text" name="lastname" placeholder="lastname"/><br/><br/>
     <label for="gender">Gender</label><br/>
-    <input style="height:40px;" type="radio" id="male" name="male" value="Male">
-    <label for="male">Male</label>
-    <input style="height:40px;" type="radio" id="female" name="female" value="Female">
-    <label for="female">Female</label><br/><br/>
+    <input style="height:35px; float: left;" type="radio" id="male" name="male" value="Male">
+    <label style="margin-left: -160px;" for="male">Male</label><br/>
+    <input style="height:35px; float: left;" type="radio" id="female" name="female" value="Female">
+    <label style="margin-left: -160px;" for="female">Female</label><br/><br/>
     <label for="location">Location</label>
     <input type="text" name="location" placeholder="Location"/><br/><br/>
     <button type="submit" class="btn btn-primary">Submit</button>

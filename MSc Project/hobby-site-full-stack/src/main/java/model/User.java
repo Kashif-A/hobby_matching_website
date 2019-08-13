@@ -31,8 +31,6 @@ public class User {
 	private String gender;
 	@Column(name="location")
 	private String location;
-	@Column(name="_status")
-	private String status;
 	@Column(name="profile_img")
 	private String profile_img;
 	@Transient
@@ -43,12 +41,14 @@ public class User {
 	public User(String first_name, 
 				String last_name, 
 				String gender,
-				String location) {
+				String location,
+				String profile_img) {
 		super();
 		this.first_name = first_name;
 		this.last_name = last_name;
 		this.gender = gender;
 		this.location = location;
+		this.profile_img = profile_img;
 	}
 
 	public int getUser_id() {
@@ -99,14 +99,6 @@ public class User {
 		this.location = location;
 	}
 
-	public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
 	public String getProfile_img() {
 		return profile_img;
 	}
@@ -126,8 +118,7 @@ public class User {
 	@Override
 	public String toString() {
 		return "User [user_id=" + user_id + ", username=" + username + ", first_name=" + first_name + ", last_name="
-				+ last_name + ", gender=" + gender + ", location=" + location + ", status=" + status + ", profile_img="
-				+ profile_img + ", hobbies=" + hobbies + "]";
+				+ last_name + ", gender=" + gender + ", location=" + location + ", profile_img=" + profile_img
+				+ ", hobbies=" + hobbies + "]";
 	}
-
 }
