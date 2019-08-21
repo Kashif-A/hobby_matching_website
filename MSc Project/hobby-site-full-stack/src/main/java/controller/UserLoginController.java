@@ -33,7 +33,6 @@ public class UserLoginController {
 	
 	@RequestMapping(value = "/login", method = RequestMethod.POST, consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
 	public Object loginPost(UserLogin userFromRequestBody, HttpServletResponse response) {
-		Gson gson = new Gson();
 		dao.UserLoginDAO userDAO = new dao.UserLoginDAO();
 		UserLogin userFromDB = userDAO.getUser(userFromRequestBody.getUsername());
 		String DBPassword = "";

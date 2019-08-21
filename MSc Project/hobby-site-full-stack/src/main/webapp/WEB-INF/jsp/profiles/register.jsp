@@ -30,32 +30,136 @@
                 <div class="col-md-8">
                     <div class="text-center">
                         <br>
-<form class="form" action="/hobby-site/register" method="POST">
-    <p><strong style="font-size: 25px;">Enter your details below, thanks...</strong></p>
-    <label for="username">Username</label>
-    <input type="text" name="username" placeholder="Username"/><br/><br/>
-    <label for="password">Password</label>
-    <input type="password" name="password" placeholder="Password"/><br/><br/>
-    <label for="firstname">First Name</label>
-    <input type="text" name="firstname" placeholder="firstname"/><br/><br/>
-    <label for="lastname">Last Name</label>
-    <input type="text" name="lastname" placeholder="lastname"/><br/><br/>
-    <label for="gender">Gender</label><br/>
-    <input style="height:35px; float: left;" type="radio" id="male" name="male" value="Male">
-    <label style="margin-left: -160px;" for="male">Male</label><br/>
-    <input style="height:35px; float: left;" type="radio" id="female" name="female" value="Female">
-    <label style="margin-left: -160px;" for="female">Female</label><br/><br/>
-    <label for="location">Location</label>
-    <input type="text" name="location" placeholder="Location"/><br/><br/>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+                        <form class="form" onsubmit="event.preventDefault();" method="POST">
+                            <p style="font-size: 30px; margin-bottom: 40px;"><strong>Enter your details below, thanks...</strong></p>
+                            <div style="margin: auto; width: 58%;">
+                                <label style="margin-top: 10px; font-size: 25px;" for="username">Username</label>
+                                <input id="username" style="float: right;" type="text" name="username" placeholder="Username" />
+                                <br/>
+                                <br/>
+                                <label style="margin-top: 10px; font-size: 25px;" for="password">Password</label>
+                                <input id="password" style="float: right;" type="password" name="password" placeholder="Password" />
+                                <br/>
+                                <br/>
+                                <label style="margin-top: 10px; font-size: 25px;" for="firstname">First Name</label>
+                                <input id="firstname" style="float: right;" type="text" name="firstname" placeholder="firstname" />
+                                <br/>
+                                <br/>
+                                <label style="margin-top: 10px; font-size: 25px;" for="lastname">Last Name</label>
+                                <input id="lastname" style="float: right;" type="text" name="lastname" placeholder="lastname" />
+                                <br/>
+                                <br/>
+                                <label style="margin-top: 10px; font-size: 25px;" for="location">Location</label>
+                                <input id="location" style="float: right;" type="text" name="location" placeholder="Location" />
+                                <br/>
+                                <br/>
+                                <label style="font-size: 30px; margin-top: 15px;" for="gender">Gender</label>
+                                <br/>
+
+                                <input style="float: left;" type="radio" id="male" name="male" value="Male">
+                                <label style="margin-left: -420px; font-size: 35px;" for="male">Male</label>
+                                <br/>
+                                <input style="float: left;" type="radio" id="female" name="female" value="Female">
+                                <label style="margin-left: -420px; font-size: 35px;" for="female">Female</label>
+                                <br/>
+                                <br/>
+
+                                <div id="dropDown" style="display: inline-block;">
+                                    <h3 style="float: left; margin-top: 15px;">Choose hobbies you like: </h3>
+                                    <select id="dropDownList" style="font-size: 25px; padding: 20px; float: left; margin-left: 25px;">
+                                    </select>
+                                    <button type=""
+                                    		class="btn btn-success" 
+                                    		style="margin: 10px; padding: 10px;"
+                                    		onclick="addHobbies()">Add Hobby</button>
+                                </div>
+                                <br/>
+                                <br/>
+                                <textarea id="hobbyList" style="height: 200px; width: 400px;"></textarea>
+                                <br/>
+                                <br/>
+                            </div>
+                            <br/>
+                            <button type="submit" onclick="validateMyForm();" class="btn btn-primary">Submit</button>
+                            <br/>
+                            <br/>
+                        </form>
                         <br />
-                        <div class="all-profiles-holder" id="all-profiles-holder"></div>
                     </div>
                     <div class="col-md-2"></div>
                 </div>
         </body>
-        <script>      
-        	
+        <script>
+            var div = document.querySelector("#dropDown")
+            var select = document.getElementById("dropDownList")
+            fetch('/hobby-site/hobbies')
+                .then(function data(data) {
+                    data.text().then(function(JSONdata) {
+                        JSONdata.split(",").map((a) => {
+                            if (a.indexOf('"') === 0) {
+                                var option = document.createElement("option");
+                                option.value = a.substring(1, a.lastIndexOf('"'))
+                                option.text = a.substring(1, a.lastIndexOf('"'))
+                                select.appendChild(option);
+                            }
+                        })
+                    })
+                })
+                .catch(function err(error) {
+                    console.log(error)
+                })
+            div.appendChild(select)
+
+            function validateMyForm() {
+           	 	var username, password, firstName, lastName, gender, location, chosenHobbies
+                username = document.getElementById('username')
+                password  = document.getElementById('password')
+                firstName = document.getElementById('firstname')
+                lastName = document.getElementById('lastname')
+                location = document.getElementById('location')
+                chosenHobbies = document.getElementById('hobbyList')
+
+				var hobbies = new Object()
+                hobbies = makeHobbiesObject(chosenHobbies.value)
+                	
+                var obj = new Object()
+                obj.uname = username.value
+                obj.password = password.value
+                obj.fname = firstName.value
+                obj.lname = lastName.value
+                obj.location = location.value
+                obj.hobbies = hobbies
+                
+                console.log(obj)
+                
+                var http = new XMLHttpRequest();
+                var url = '/hobby-site/test';
+                http.open('POST', url, true);
+
+                //Send the proper header information along with the request
+                http.setRequestHeader('Content-type', 'application/json');
+
+                http.onreadystatechange = function() {//Call a function when the state changes.
+                    if(http.readyState == 4 && http.status == 200) {
+                        console.log(http.responseText);
+                    }
+                }
+                http.send(JSON.stringify(obj));
+            }
+            
+            function makeHobbiesObject(hobbies){
+            	var hobbyObj = hobbies.substring(2, hobbies.length).split(',')
+            	var trimmedHobbyObj = hobbyObj.map((hobby) => hobby.trim())
+            	return trimmedHobbyObj
+            }
         </script>
+		<script>
+			 function addHobbies(){
+				var dropDownHobby = document.getElementById('dropDownList');
+	         	var textArea = document.getElementById('hobbyList')
+	         	var selectedHobbies = textArea.value
+	         	selectedHobbies = selectedHobbies + ', ' + dropDownHobby.value
+	         	textArea.value = selectedHobbies
+	         }
+		</script>
         </html>

@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -24,9 +25,12 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
+import dao.HobbyDAO;
 import dao.UserDAO;
 import dao.UserLoginDAO;
+import model.JsonRegisterForm;
 import model.User;
 import model.UserLogin;
 import util.GetSession;
@@ -43,7 +47,8 @@ public class Register {
     }
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public String loginGet(WebRequest request) {
+	public String loginGet(WebRequest request, @RequestBody String json) {
+		System.out.println(json.toString());
 		GetSession session = new GetSession();
 		String gender = "";
 		if(request.getParameter("male") != null) {
@@ -68,11 +73,27 @@ public class Register {
 		} catch (Exception ex) {
 			return "profiles/register";
 		}
-		
+    }
+	
+	@RequestMapping(value = "/test", method = RequestMethod.POST)
+	public void registerPost(@RequestBody String json) {
+		Gson gson = new Gson();
+		model.JsonRegisterForm a = gson.fromJson(json, model.JsonRegisterForm.class);
+		System.out.println("here");
+		System.out.println(a.getLocation());
     }
 	
 	private String hashPassword(String password) {
 		PBKDF2PasswordHash hashPwd = new PBKDF2PasswordHash();
 		return hashPwd.hashPassword(password);
+	}
+	
+	@RequestMapping(value = "/hobbies", method = RequestMethod.GET)
+	@ResponseBody
+	public String getHobbies() {
+		HobbyDAO hobbyDAO = new HobbyDAO();
+		Gson gson = new Gson();
+		//System.out.println(hobbyDAO.getHobbyList());
+		return gson.toJson(hobbyDAO.getHobbyList());
 	}
 }
