@@ -16,9 +16,8 @@ CREATE TABLE IF NOT EXISTS user_detail (
     id INT AUTO_INCREMENT,
     first_name VARCHAR(255) NOT NULL,
     last_name VARCHAR(255) NOT NULL,
-    gender VARCHAR(2) NOT NULL,
+    gender VARCHAR(10) NOT NULL,
     location VARCHAR(255) NOT NULL,
-    _status VARCHAR(20) NOT NULL,
     username INT NOT NULL,
 				profile_img VARCHAR(255) NOT NULL,
     PRIMARY KEY (id),
@@ -41,48 +40,39 @@ CREATE TABLE IF NOT EXISTS user_hobby (
 );
 
 /* user_authentication */
-INSERT INTO user_authentication (username, password) 
-VALUES ('username', 'password');
-INSERT INTO user_authentication (username, password) 
-VALUES ('john', 'wick');
+INSERT INTO user_authentication (username, password) VALUES ('test', 'password');
 
 /* user_detail */
-INSERT INTO user_detail (first_name, last_name, gender, location, _status, username, profile_img) 
-VALUES ('username', 'password', 'm', 'Bolton', 'online', 1, 'https://www.aspentrading.com/wp-content/uploads/dave-floyd-head-shot-12.19.2016-300x300.png');
-INSERT INTO user_detail (first_name, last_name, gender, location, _status, username, profile_img) 
-VALUES ('john', 'wick', 'm', 'Bolton', 'online', 1, 'https://www.aspentrading.com/wp-content/uploads/dave-floyd-head-shot-12.19.2016-300x300.png');
+INSERT INTO user_detail (first_name, last_name, gender, location, username, profile_img) 
+VALUES ('test', 'password', 'male', 'Bolton',1, 'https://www.aspentrading.com/wp-content/uploads/dave-floyd-head-shot-12.19.2016-300x300.png');
 
 /* hobby */
-INSERT INTO hobby (hobby) 
-VALUES ('reading');
-INSERT INTO hobby (hobby) 
-VALUES ('swimming');
-INSERT INTO hobby (hobby) 
-VALUES ('music');
+INSERT INTO hobby (hobby) VALUES ('reading');
+INSERT INTO hobby (hobby) VALUES ('swimming');
+INSERT INTO hobby (hobby) VALUES ('walking');
+INSERT INTO hobby (hobby) VALUES ('internet');
+INSERT INTO hobby (hobby) VALUES ('comedy');
+INSERT INTO hobby (hobby) VALUES ('knitting');
+INSERT INTO hobby (hobby) VALUES ('chatting');
+INSERT INTO hobby (hobby) VALUES ('dogs');
+INSERT INTO hobby (hobby) VALUES ('cats');
+INSERT INTO hobby (hobby) VALUES ('painting');
+INSERT INTO hobby (hobby) VALUES ('food');
+INSERT INTO hobby (hobby) VALUES ('travel');
+INSERT INTO hobby (hobby) VALUES ('relaxing');
+INSERT INTO hobby (hobby) VALUES ('life');
+INSERT INTO hobby (hobby) VALUES ('history');
+INSERT INTO hobby (hobby) VALUES ('talking');
+INSERT INTO hobby (hobby) VALUES ('friends');
+INSERT INTO hobby (hobby) VALUES ('family');
+INSERT INTO hobby (hobby) VALUES ('cooking');
+INSERT INTO hobby (hobby) VALUES ('biking');
+INSERT INTO hobby (hobby) VALUES ('running');
+INSERT INTO hobby (hobby) VALUES ('swimming');
+INSERT INTO hobby (hobby) VALUES ('music');
 
 /* user_hobby */
-INSERT INTO user_hobby (hobby_fk, user_fk) 
-VALUES (1, 1);
-INSERT INTO user_hobby (hobby_fk, user_fk) 
-VALUES (2, 1);
-INSERT INTO user_hobby (hobby_fk, user_fk) 
-VALUES (3, 1);
-INSERT INTO user_hobby (hobby_fk, user_fk) 
-VALUES (3, 2);
-
-/* select statements */
-SELECT * FROM msc.hobby;
+SELECT * FROM msc.user_hobby;
 SELECT * FROM msc.user_authentication;
 SELECT * FROM msc.user_detail;
-SELECT * FROM msc.user_hobby;
-
-SELECT msc.hobby.hobby
-	FROM user_detail
-		INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk
-		INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk
-		WHERE msc.user_detail.id = (
-			 SELECT msc.user_authentication.id FROM msc.user_authentication
-				WHERE msc.user_authentication.id = 1
-		);
-        
-SELECT msc.user_authentication.id FROM msc.user_authentication WHERE msc.user_authentication.id = 1;
+SELECT * FROM msc.hobby;

@@ -55,11 +55,10 @@
                                 <br/>
                                 <label style="font-size: 30px; margin-top: 15px;" for="gender">Gender</label>
                                 <br/>
-
-                                <input style="float: left;" type="radio" id="male" name="male" value="Male">
+                                <input style="float: left;" type="radio" id="male" name="gender" value="Male">
                                 <label style="margin-left: -420px; font-size: 35px;" for="male">Male</label>
                                 <br/>
-                                <input style="float: left;" type="radio" id="female" name="female" value="Female">
+                                <input style="float: left;" type="radio" id="female" name="gender" value="Female">
                                 <label style="margin-left: -420px; font-size: 35px;" for="female">Female</label>
                                 <br/>
                                 <br/>
@@ -118,6 +117,12 @@
                 lastName = document.getElementById('lastname')
                 location = document.getElementById('location')
                 chosenHobbies = document.getElementById('hobbyList')
+                
+                if (document.getElementById('male').checked) {
+				  	gender = 'male'
+				} else {
+					gender = 'female'
+				}
 
 				var hobbies = new Object()
                 hobbies = makeHobbiesObject(chosenHobbies.value)
@@ -127,13 +132,14 @@
                 obj.password = password.value
                 obj.fname = firstName.value
                 obj.lname = lastName.value
+                obj.gender = gender
                 obj.location = location.value
                 obj.hobbies = hobbies
                 
                 console.log(obj)
                 
                 var http = new XMLHttpRequest();
-                var url = '/hobby-site/test';
+                var url = '/hobby-site/register';
                 http.open('POST', url, true);
 
                 //Send the proper header information along with the request

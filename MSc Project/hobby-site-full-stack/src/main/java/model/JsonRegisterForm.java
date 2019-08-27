@@ -9,16 +9,18 @@ public class JsonRegisterForm {
 	private String fname;
 	private String lname;
 	private String location;
+	private String gender;
 	private String[] hobbies;
 	
 	public JsonRegisterForm(String uname, String password, String fname, String lname, String location,
-			String[] hobbies) {
+			String gender, String[] hobbies) {
 		super();
 		this.uname = uname;
 		this.password = password;
 		this.fname = fname;
 		this.lname = lname;
 		this.location = location;
+		this.gender = gender;
 		this.hobbies = hobbies;
 	}
 
@@ -60,6 +62,14 @@ public class JsonRegisterForm {
 
 	public void setLocation(String location) {
 		this.location = location;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
 	}
 
 	public String[] getHobbies() {
