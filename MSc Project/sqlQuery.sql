@@ -40,11 +40,8 @@ CREATE TABLE IF NOT EXISTS user_hobby (
 );
 
 /* user_authentication */
-INSERT INTO user_authentication (username, password) VALUES ('test', 'password');
 
 /* user_detail */
-INSERT INTO user_detail (first_name, last_name, gender, location, username, profile_img) 
-VALUES ('test', 'password', 'male', 'Bolton',1, 'https://www.aspentrading.com/wp-content/uploads/dave-floyd-head-shot-12.19.2016-300x300.png');
 
 /* hobby */
 INSERT INTO hobby (hobby) VALUES ('reading');

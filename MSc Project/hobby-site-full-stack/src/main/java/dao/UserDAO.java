@@ -42,17 +42,17 @@ public class UserDAO {
     }
 
 	@SuppressWarnings("unchecked")
-	public List<User> getUser(int userID){
+	public User getUser(int userID){
 		Session session = sessionFactory.openSession();
-		List<User> searchedUsers = new ArrayList<User>();	
+		User searchedUser = new User();	
 		session.beginTransaction();
-		Query<User> queryObject = session.createQuery("from User where user_id like '%" + userID + "%'");
-		searchedUsers = queryObject.list();
+		Query<User> queryObject = session.createQuery("from User where user_id =" + userID);
+		searchedUser = queryObject.getSingleResult();
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
 			session.close();
 		}
-		return searchedUsers;
+		return searchedUser;
 	}
 	
 	private List<String> getHobbies(int userId){

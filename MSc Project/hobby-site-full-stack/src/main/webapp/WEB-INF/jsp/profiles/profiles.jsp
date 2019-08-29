@@ -48,10 +48,10 @@
         <script>      
         	 (function populateProfiles(){
         		 var profiles = ${json}
-        		 console.log(profiles)
 	          	let mainDiv = document.getElementById('all-profiles-holder')
 	          	profiles.map((profile) => {
 	          		let anchorTag = document.createElement('a')
+	          		anchorTag.href = '/hobby-site/getuser/' + profile.user_id
 		          	let profileContainerDiv = document.createElement('div')
 		          	let profileImg = document.createElement('img')
 		          	let profileInfoDiv = document.createElement('div')
@@ -99,7 +99,6 @@
 		          	mainDiv.append(anchorTag)
 		          	
 		          	profile.hobbies.map((hobby) => {
-		          		console.log(hobby)
 		          		let li = document.createElement('li')
 		          		li.innerHTML = hobby
 		          		ul.append(li)

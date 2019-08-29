@@ -29,10 +29,14 @@ public class Register {
     }
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
-	public ModelAndView registerPOST(WebRequest request, @RequestBody String json) {
+	@ResponseBody
+	public String registerPOST(WebRequest request, @RequestBody String json) {
 		GetSession session = new GetSession();
 		Gson gson = new Gson();
 		JsonRegisterForm registerJSONObj = gson.fromJson(json, JsonRegisterForm.class);
+		for(String a : registerJSONObj.getHobbies()) {
+			System.out.println(a);
+		}
 		User user = new User(
 					registerJSONObj.getFname(),
 					registerJSONObj.getLname(),
@@ -48,9 +52,9 @@ public class Register {
 			user.setUsername(userID);
 			userDAO.addUser(user);
 			session.getSession(userLogin.getUsername());
-			return new ModelAndView("redirect:/profiles/profiles");
+			return "success";
 		} catch (Exception ex) {
-			return new ModelAndView("redirect:profiles/test");
+			return "fail";
 		}
     }
 	

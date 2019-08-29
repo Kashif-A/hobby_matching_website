@@ -147,7 +147,7 @@
 
                 http.onreadystatechange = function() {//Call a function when the state changes.
                     if(http.readyState == 4 && http.status == 200) {
-                        console.log(http.responseText);
+                        http.responseText === 'success' ? window.location.href = '/hobby-site/profiles' : window.location.href = '/hobby-site/register'
                     }
                 }
                 http.send(JSON.stringify(obj));

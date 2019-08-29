@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -37,6 +38,27 @@ public class ProfilesController {
 			loggedInModelAndView.addObject("json", jsonList);
 		} else {
 			return new ModelAndView("/profiles/test");
+		}
+		return loggedInModelAndView;
+    }
+	
+	@RequestMapping(value = "/getuser/{id}", method = RequestMethod.GET)
+	@ResponseBody
+	public ModelAndView getUser(@PathVariable(value="id") int id) {
+		Gson gson = new Gson();
+		User user = new User();
+		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpSession session = requestAttributes.getRequest().getSession();
+		ModelAndView loggedInModelAndView = new ModelAndView("/profiles/individualprofile");
+		if(session.getAttribute("authenticated") != null) {
+			dao.UserDAO userDAO = new dao.UserDAO();
+			user = userDAO.getUser(id);
+			AuthenticatedSession s = (AuthenticatedSession) session.getAttribute("authenticated");
+			String jsonUser = gson.toJson(user);
+			System.out.println(jsonUser);
+			loggedInModelAndView.addObject("json", jsonUser);
+		} else {
+			return new ModelAndView("/profiles/individualprofile");
 		}
 		return loggedInModelAndView;
     }
