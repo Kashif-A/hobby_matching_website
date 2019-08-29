@@ -24,7 +24,6 @@ public class PBKDF2PasswordHash {
 			} catch (NoSuchAlgorithmException e) {
 				e.printStackTrace();
 			}
-		System.out.println(hashedString);
 		return hashedString;
 	}
 

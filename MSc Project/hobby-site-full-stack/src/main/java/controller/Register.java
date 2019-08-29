@@ -22,6 +22,7 @@ import util.PBKDF2PasswordHash;
 public class Register {
 	UserDAO userDAO = new UserDAO();
 	UserLoginDAO userLoginDAO = new UserLoginDAO();
+	HobbyDAO hobbyDAO = new HobbyDAO();
 
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public String loginGet() {
@@ -34,9 +35,6 @@ public class Register {
 		GetSession session = new GetSession();
 		Gson gson = new Gson();
 		JsonRegisterForm registerJSONObj = gson.fromJson(json, JsonRegisterForm.class);
-		for(String a : registerJSONObj.getHobbies()) {
-			System.out.println(a);
-		}
 		User user = new User(
 					registerJSONObj.getFname(),
 					registerJSONObj.getLname(),
@@ -49,6 +47,8 @@ public class Register {
 		try {
 			userLoginDAO.addUser(userLogin);
 			int userID = userLoginDAO.getUser(registerJSONObj.getUname()).getUser_id();
+			System.out.println("TEST");
+			hobbyDAO.populateHobbiesLinkedToUser(registerJSONObj.getHobbies(), userID);
 			user.setUsername(userID);
 			userDAO.addUser(user);
 			session.getSession(userLogin.getUsername());

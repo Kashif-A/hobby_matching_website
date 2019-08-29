@@ -1,5 +1,6 @@
 package dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -29,5 +30,30 @@ public class HobbyDAO {
 			session.close();
 		}
 		return hobby;
+	}
+	
+	public void populateHobbiesLinkedToUser(String[] hobbies, int user_id) {
+		System.out.println("000000000000000000HOBBIES0000000000000000");
+		System.out.println(hobbies);
+		HashMap<String,Integer> hobbiesMap = new HashMap<String, Integer>();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		List<Object[]> hobbiesFromDatabase = getHobbyList();
+		for(Object[] h : hobbiesFromDatabase) {
+			String key = h[1].toString();
+			int value = Integer.parseInt(h[0].toString());
+			hobbiesMap.put(key, value);
+		}
+		for(String h : hobbies) {
+			int hobbyId = hobbiesMap.get(h);
+			String SQLquery = "INSERT INTO msc.user_hobby (hobby_fk, user_fk) VALUES (1,?)";
+			session.createNativeQuery(SQLquery)
+				   .setParameter(hobbyId, user_id)
+				   .executeUpdate();
+			System.out.println("A");
+		}
+		if (session.getTransaction() != null) {
+			session.close();
+		}
 	}
 }

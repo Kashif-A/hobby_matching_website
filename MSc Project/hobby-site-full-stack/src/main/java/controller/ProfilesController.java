@@ -55,7 +55,6 @@ public class ProfilesController {
 			user = userDAO.getUser(id);
 			AuthenticatedSession s = (AuthenticatedSession) session.getAttribute("authenticated");
 			String jsonUser = gson.toJson(user);
-			System.out.println(jsonUser);
 			loggedInModelAndView.addObject("json", jsonUser);
 		} else {
 			return new ModelAndView("/profiles/individualprofile");
