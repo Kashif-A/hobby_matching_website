@@ -33,8 +33,6 @@ public class HobbyDAO {
 	}
 	
 	public void populateHobbiesLinkedToUser(String[] hobbies, int user_id) {
-		System.out.println("000000000000000000HOBBIES0000000000000000");
-		System.out.println(hobbies);
 		HashMap<String,Integer> hobbiesMap = new HashMap<String, Integer>();
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
@@ -50,7 +48,6 @@ public class HobbyDAO {
 			session.createNativeQuery(SQLquery)
 				   .setParameter(hobbyId, user_id)
 				   .executeUpdate();
-			System.out.println("A");
 		}
 		if (session.getTransaction() != null) {
 			session.close();

@@ -47,10 +47,9 @@ public class Register {
 		try {
 			userLoginDAO.addUser(userLogin);
 			int userID = userLoginDAO.getUser(registerJSONObj.getUname()).getUser_id();
-			System.out.println("TEST");
-			hobbyDAO.populateHobbiesLinkedToUser(registerJSONObj.getHobbies(), userID);
 			user.setUsername(userID);
 			userDAO.addUser(user);
+			hobbyDAO.populateHobbiesLinkedToUser(registerJSONObj.getHobbies(), userID);
 			session.getSession(userLogin.getUsername());
 			return "success";
 		} catch (Exception ex) {

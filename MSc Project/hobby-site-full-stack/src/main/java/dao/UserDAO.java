@@ -1,6 +1,5 @@
 package dao;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,15 +58,10 @@ public class UserDAO {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
-		List<Integer> d = session.createNativeQuery("" +
-				"SELECT msc.user_authentication.id FROM msc.user_authentication\r\n" + 
-				"  WHERE msc.user_authentication.id = " + userId).getResultList();
 		List<String> hobbies = session.createNativeQuery(""
-			+ "SELECT msc.hobby.hobby \r\n" + 
-			"  FROM user_detail\r\n" + 
-			"  INNER JOIN msc.user_hobby ON msc.user_detail.id = msc.user_hobby.user_fk\r\n" + 
-			"  INNER JOIN msc.hobby ON msc.hobby.id = msc.user_hobby.hobby_fk\r\n" + 
-			"  WHERE msc.user_detail.id =" + d.get(0)).getResultList();
+			+ "SELECT hobby FROM msc.user_hobby "
+			+ "INNER JOIN msc.user_detail ON msc.user_hobby.user_fk = " + userId
+			+ " INNER JOIN msc.hobby ON msc.user_hobby.hobby_fk = msc.hobby.id;").getResultList();
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
 			session.close();
