@@ -50,7 +50,7 @@
 <script>
 (function populateProfiles(){
 	var profiles = ${json}
- 	
+ 	console.log(profiles)
  })()
 </script>
 </html>

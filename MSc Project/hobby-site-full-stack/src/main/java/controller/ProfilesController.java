@@ -55,7 +55,8 @@ public class ProfilesController {
 		if(session.getAttribute("authenticated") != null) {
 			dao.UserDAO userDAO = new dao.UserDAO();
 			user = userDAO.getUser(id);
-			user.setHobbies(hobbyDAO.get);
+			List<String> userHobbies = userDAO.getHobbies(user.getUser_id());
+			user.setHobbies(userHobbies);
 			AuthenticatedSession s = (AuthenticatedSession) session.getAttribute("authenticated");
 			String jsonUser = gson.toJson(user);
 			loggedInModelAndView.addObject("json", jsonUser);

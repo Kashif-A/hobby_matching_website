@@ -54,7 +54,7 @@ public class UserDAO {
 		return searchedUser;
 	}
 	
-	private List<String> getHobbies(int userId){
+	public List<String> getHobbies(int userId){
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		@SuppressWarnings("unchecked")
