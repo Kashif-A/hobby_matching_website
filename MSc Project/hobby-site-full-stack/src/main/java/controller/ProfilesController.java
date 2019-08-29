@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.Gson;
 
+import dao.HobbyDAO;
 import model.User;
 import model.UserLogin;
 import util.AuthenticatedSession;
@@ -47,12 +48,14 @@ public class ProfilesController {
 	public ModelAndView getUser(@PathVariable(value="id") int id) {
 		Gson gson = new Gson();
 		User user = new User();
+		HobbyDAO hobbyDAO = new HobbyDAO();
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = requestAttributes.getRequest().getSession();
 		ModelAndView loggedInModelAndView = new ModelAndView("/profiles/individualprofile");
 		if(session.getAttribute("authenticated") != null) {
 			dao.UserDAO userDAO = new dao.UserDAO();
 			user = userDAO.getUser(id);
+			user.setHobbies(hobbyDAO.get);
 			AuthenticatedSession s = (AuthenticatedSession) session.getAttribute("authenticated");
 			String jsonUser = gson.toJson(user);
 			loggedInModelAndView.addObject("json", jsonUser);
