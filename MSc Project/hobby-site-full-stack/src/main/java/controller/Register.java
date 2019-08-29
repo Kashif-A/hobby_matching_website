@@ -53,6 +53,7 @@ public class Register {
 			session.getSession(userLogin.getUsername());
 			return "success";
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			return "fail";
 		}
     }

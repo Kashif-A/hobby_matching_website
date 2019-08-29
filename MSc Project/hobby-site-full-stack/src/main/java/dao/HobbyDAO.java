@@ -3,6 +3,8 @@ package dao;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -44,10 +46,13 @@ public class HobbyDAO {
 		}
 		for(String h : hobbies) {
 			int hobbyId = hobbiesMap.get(h);
-			String SQLquery = "INSERT INTO msc.user_hobby (hobby_fk, user_fk) VALUES (1,?)";
+			@SuppressWarnings("deprecation")
+			String SQLquery = "INSERT INTO msc.user_hobby (hobby_fk, user_fk) VALUES (:firstParam,:secondParam)";
+			
 			session.createNativeQuery(SQLquery)
-				   .setParameter(hobbyId, user_id)
-				   .executeUpdate();
+					.setParameter("firstParam", hobbyId)
+					.setParameter("secondParam", user_id)
+					.executeUpdate();
 		}
 		if (session.getTransaction() != null) {
 			session.close();

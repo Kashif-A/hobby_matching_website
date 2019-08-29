@@ -29,7 +29,7 @@
         <div class="col text-center">
             <div class="individual-profile-holder">
                 <div class="message-button">
-                    <a href="../message-user.html">
+                    <a href="/hobby-site/sendmessage">
                         <button class="btn btn-primary" style="background-color: #171e75; margin-bottom: 10px;">
                             <h5 style="margin-top: 4px; padding: 1px;"><strong>MESSAGE THIS USER</strong></h5>
                         </button>
@@ -49,8 +49,16 @@
 </body>
 <script>
 (function populateProfiles(){
-	var profiles = ${json}
- 	console.log(profiles)
+	var profile = ${json}
+	console.log(profile)
+	var name = document.getElementById('name')
+	var ul = document.getElementById('hobbies')
+	name.innerHTML = profile.first_name + " " + profile.last_name
+	profile.hobbies.map((hobby) => {
+  		let li = document.createElement('li')
+  		li.innerHTML = "-   " + hobby
+  		ul.append(li)
+	})
  })()
 </script>
 </html>

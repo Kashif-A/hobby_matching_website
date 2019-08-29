@@ -61,8 +61,13 @@ public class ProfilesController {
 			String jsonUser = gson.toJson(user);
 			loggedInModelAndView.addObject("json", jsonUser);
 		} else {
-			return new ModelAndView("/profiles/individualprofile");
+			return new ModelAndView("/");
 		}
 		return loggedInModelAndView;
+    }
+	
+	@RequestMapping(value = "/sendmessage", method = RequestMethod.GET)
+	public String home() {
+		return "/profiles/message-user";
     }
 }
