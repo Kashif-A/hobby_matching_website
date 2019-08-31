@@ -66,7 +66,7 @@ public class ProfilesController {
 		return loggedInModelAndView;
     }
 	
-	@RequestMapping(value = "/sendmessage", method = RequestMethod.GET)
+	@RequestMapping(value = "/sendmessage/*", method = RequestMethod.GET)
 	public String home() {
 		return "/profiles/message-user";
     }

@@ -1,32 +1,39 @@
 package model;
 
+
 public class Message {
+
 	private String message;
-	private String timeStamp;
+	private String timestamp;
 	
-	public Message(String message, String timeStamp) {
+	public Message() {}
+
+	public Message(String message, String timestamp) {
 		super();
 		this.message = message;
-		this.timeStamp = timeStamp;
+		this.timestamp = timestamp;
 	}
-	
+
 	public String getMessage() {
 		return message;
 	}
+
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	public String getTimeStamp() {
-		return timeStamp;
+
+	public String getTimestamp() {
+		return timestamp;
 	}
-	public void setTimeStamp(String timeStamp) {
-		this.timeStamp = timeStamp;
+
+	public void setTimestamp(String timestamp) {
+		this.timestamp = timestamp;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Message [message=" + message + ", timeStamp=" + timeStamp + "]";
+		return "Message [message=" + message + ", timestamp=" + timestamp + "]";
 	}
-	
-	
+
 }
+

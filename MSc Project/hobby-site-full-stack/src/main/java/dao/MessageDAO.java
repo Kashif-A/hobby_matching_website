@@ -25,13 +25,15 @@ public class MessageDAO {
 		
 	}*/
 	
-	public void insertMessage(String message) {
+	public void insertMessage(int userId, String message, String timestamp) {
 		Session session = sessionFactory.openSession();
 		session.beginTransaction();
 		Query query = session.createNativeQuery("INSERT INTO msc.message "
 				+ "(user_id, message, time_of_message) "
-				+ "VALUES (1, :message , 'gucci')");
+				+ "VALUES (:userId, :message , :timestamp)");
+		query.setParameter("userId", userId);
 		query.setParameter("message", message);
+		query.setParameter("timestamp", timestamp);
 		query.executeUpdate();
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {

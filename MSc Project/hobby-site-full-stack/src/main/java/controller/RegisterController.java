@@ -31,10 +31,10 @@ public class RegisterController {
 	
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	@ResponseBody
-	public String registerPOST(WebRequest request, @RequestBody String json) {
+	public String registerPOST(WebRequest request, @RequestBody String requestBody) {
 		GetSession session = new GetSession();
 		Gson gson = new Gson();
-		JsonRegisterForm registerJSONObj = gson.fromJson(json, JsonRegisterForm.class);
+		JsonRegisterForm registerJSONObj = gson.fromJson(requestBody, JsonRegisterForm.class);
 		User user = new User(
 					registerJSONObj.getFname(),
 					registerJSONObj.getLname(),

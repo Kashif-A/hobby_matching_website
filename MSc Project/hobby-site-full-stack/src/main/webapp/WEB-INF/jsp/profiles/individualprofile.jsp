@@ -29,11 +29,9 @@
         <div class="col text-center">
             <div class="individual-profile-holder">
                 <div class="message-button">
-                    <a href="/hobby-site/sendmessage">
-                        <button class="btn btn-primary" style="background-color: #171e75; margin-bottom: 10px;">
-                            <h5 style="margin-top: 4px; padding: 1px;"><strong>MESSAGE THIS USER</strong></h5>
-                        </button>
-                    </a>
+                   <button onclick="sendMessage()" class="btn btn-primary" style="background-color: #171e75; margin-bottom: 10px;">
+                       <h5 style="margin-top: 4px; padding: 1px;"><strong>MESSAGE THIS USER</strong></h5>
+                   </button>
                 </div>
                 <div class="individual-profile-image">
                     <img src="../../pics/5.jpg" class="individual-profile-img">
@@ -60,5 +58,11 @@
   		ul.append(li)
 	})
  })()
+ 
+ function sendMessage() {
+	var userId = window.location.href
+	userId = userId[userId.length - 1]
+	window.location.href="/hobby-site/sendmessage/" + userId
+}
 </script>
 </html>
