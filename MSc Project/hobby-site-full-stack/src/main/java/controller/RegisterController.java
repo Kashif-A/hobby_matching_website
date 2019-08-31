@@ -19,7 +19,7 @@ import util.GetSession;
 import util.PBKDF2PasswordHash;
 
 @Controller
-public class Register {
+public class RegisterController {
 	UserDAO userDAO = new UserDAO();
 	UserLoginDAO userLoginDAO = new UserLoginDAO();
 	HobbyDAO hobbyDAO = new HobbyDAO();
