@@ -33,10 +33,6 @@
                         <form class="form" onsubmit="event.preventDefault();" method="POST">
                             <p style="font-size: 30px; margin-bottom: 40px;"><strong>Enter your details below, thanks...</strong></p>
                             <div style="margin: auto; width: 58%;">
-                                <label style="margin-top: 10px; font-size: 25px;" for="username">Username</label>
-                                <input id="username" style="float: right;" type="text" name="username" placeholder="Username" />
-                                <br/>
-                                <br/>
                                 <label style="margin-top: 10px; font-size: 25px;" for="password">Password</label>
                                 <input id="password" style="float: right;" type="password" name="password" placeholder="Password" />
                                 <br/>
@@ -89,83 +85,11 @@
                 </div>
         </body>
         <script>
-            var div = document.querySelector("#dropDown")
-            var select = document.getElementById("dropDownList")
-            fetch('/hobby-site/hobbies')
-                .then(function data(data) {
-                    data.text().then(function(JSONdata) {
-                        JSONdata.split(",").map((a) => {
-                            if (a.indexOf('"') === 0) {
-                                var option = document.createElement("option");
-                                option.value = a.substring(1, a.lastIndexOf('"'))
-                                option.text = a.substring(1, a.lastIndexOf('"'))
-                                select.appendChild(option);
-                            }
-                        })
-                    })
-                })
-                .catch(function err(error) {
-                    console.log(error)
-                })
-            div.appendChild(select)
-
-            function validateMyForm() {
-           	 	var username, password, firstName, lastName, gender, location, chosenHobbies
-                username = document.getElementById('username')
-                password  = document.getElementById('password')
-                firstName = document.getElementById('firstname')
-                lastName = document.getElementById('lastname')
-                location = document.getElementById('location')
-                chosenHobbies = document.getElementById('hobbyList')
-                
-                if (document.getElementById('male').checked) {
-				  	gender = 'male'
-				} else {
-					gender = 'female'
-				}
-
-				var hobbies = new Object()
-                hobbies = makeHobbiesObject(chosenHobbies.value)
-                	
-                var obj = new Object()
-                obj.uname = username.value
-                obj.password = password.value
-                obj.fname = firstName.value
-                obj.lname = lastName.value
-                obj.gender = gender
-                obj.location = location.value
-                obj.hobbies = hobbies
-                
-                console.log(obj)
-                
-                var http = new XMLHttpRequest();
-                var url = '/hobby-site/register';
-                http.open('POST', url, true);
-
-                //Send the proper header information along with the request
-                http.setRequestHeader('Content-type', 'application/json');
-
-                http.onreadystatechange = function() {//Call a function when the state changes.
-                    if(http.readyState == 4 && http.status == 200) {
-                        http.responseText === 'success' ? window.location.href = '/hobby-site/profiles' : window.location.href = '/hobby-site/register'
-                    }
-                }
-                http.send(JSON.stringify(obj));
-            }
-            
-            function makeHobbiesObject(hobbies){
-            	var hobbyObj = hobbies.substring(2, hobbies.length).split(',')
-            	var trimmedHobbyObj = hobbyObj.map((hobby) => hobby.trim())
-            	return trimmedHobbyObj
-            }
-        </script>
-		<script>
-			 function addHobbies(){
-				var dropDownHobby = document.getElementById('dropDownList');
-	         	var textArea = document.getElementById('hobbyList')
-	         	var selectedHobbies = textArea.value
-	         	selectedHobbies = selectedHobbies + ', ' + dropDownHobby.value
-	         	textArea.value = selectedHobbies
-	         }
+            (function test() {
+            	var userDetails = ${json}
+            	document.getElementById('firstname').value = userDetails.first_name
+            	document.getElementById('lastname').value = userDetails.last_name
+            	document.getElementById('location').value = userDetails.location
+            })()
 		</script>
         </html>
