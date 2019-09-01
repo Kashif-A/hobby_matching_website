@@ -23,22 +23,26 @@ import util.AuthenticatedSession;
 @Controller
 public class ProfilesController {
 	
+	// GET Requests to /profiles endpoint are handled by this method of the ProfilesController
 	@RequestMapping(value = "/profiles", method = RequestMethod.GET)
-	@ResponseBody
+	@ResponseBody // Indicates that the method returns raw response data
 	public ModelAndView profiles() {
 		Gson gson = new Gson();
-		List<User> list = null;
+		List<User> list = null; // Object to hold all user data once retrieved
+		
+		// Get current session to ensure user is logged in
 		ServletRequestAttributes requestAttributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
 		HttpSession session = requestAttributes.getRequest().getSession();
+		
+		// Select the JSP page to be returned
 		ModelAndView loggedInModelAndView = new ModelAndView("/profiles/profiles");
-		if(session.getAttribute("authenticated") != null) {
+		if(session.getAttribute("authenticated") != null) { // Ensure user is logged in
 			dao.UserDAO userDAO = new dao.UserDAO();
-			list = userDAO.listUsers();
-			AuthenticatedSession s = (AuthenticatedSession) session.getAttribute("authenticated");
-			String jsonList = gson.toJson(list);
-			loggedInModelAndView.addObject("json", jsonList);
+			list = userDAO.listUsers(); // Get all users from database
+			String jsonList = gson.toJson(list); // Transform retrieved users into JSON object
+			loggedInModelAndView.addObject("json", jsonList); // Attach JSON object to the JSP page
 		} else {
-			return new ModelAndView("/profiles/test");
+			return new ModelAndView("/profiles/error");
 		}
 		return loggedInModelAndView;
     }

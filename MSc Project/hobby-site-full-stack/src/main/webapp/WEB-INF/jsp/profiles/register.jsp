@@ -56,10 +56,13 @@
                                 <label style="font-size: 30px; margin-top: 15px;" for="gender">Gender</label>
                                 <br/>
                                 <input style="float: left;" type="radio" id="male" name="gender" value="Male">
-                                <label style="margin-left: -420px; font-size: 35px;" for="male">Male</label>
+                                <label style="margin-left: -430px; font-size: 30px;" for="male">Male</label>
                                 <br/>
                                 <input style="float: left;" type="radio" id="female" name="gender" value="Female">
-                                <label style="margin-left: -420px; font-size: 35px;" for="female">Female</label>
+                                <label style="margin-left: -420px; font-size: 30px;" for="female">Female</label>
+                                <br/>
+                                <input style="float: left;" type="radio" id="female" name="gender" value="Female">
+                                <label style="margin-left: -430px; font-size: 30px;" for="female">Other</label>
                                 <br/>
                                 <br/>
 

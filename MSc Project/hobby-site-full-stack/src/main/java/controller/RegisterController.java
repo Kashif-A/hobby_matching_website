@@ -35,6 +35,7 @@ public class RegisterController {
 		GetSession session = new GetSession();
 		Gson gson = new Gson();
 		JsonRegisterForm registerJSONObj = gson.fromJson(requestBody, JsonRegisterForm.class);
+		System.out.println(registerJSONObj);
 		User user = new User(
 					registerJSONObj.getFname(),
 					registerJSONObj.getLname(),

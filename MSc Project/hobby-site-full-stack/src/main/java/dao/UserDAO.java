@@ -25,17 +25,17 @@ public class UserDAO {
 	
 	@SuppressWarnings("unchecked")
 	public List<User> listUsers(){
-	    Session session = sessionFactory.openSession();
-		List<User> allUsers = new ArrayList<User>();
+	    Session session = sessionFactory.openSession(); // Get hibernate database session
+		List<User> allUsers = new ArrayList<User>(); // Object to hold user data
 		session.beginTransaction();	
-		Query<User> query = session.createQuery("FROM model.User");
-		allUsers = query.list();
+		Query<User> query = session.createQuery("FROM model.User"); // Hibernate query to get all users from database
+		allUsers = query.list(); // Convert result of query into list
 		for(User user : allUsers) {
-			user.setHobbies(getHobbies(user.getUser_id()));
+			user.setHobbies(getHobbies(user.getUser_id())); // As hobbies are held in a different table, they are populated separately
 		}
 		session.getTransaction().commit();
 		if (session.getTransaction() != null) {
-			session.close();
+			session.close(); // Close transaction
 		}
 		return allUsers;
     }
