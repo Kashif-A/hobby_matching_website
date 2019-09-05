@@ -1,4 +1,4 @@
-package controller;
+/*package controller;
 
 import javax.servlet.http.HttpSession;
 
@@ -38,4 +38,4 @@ public class MessageController {
 		int userId = user.getUser_id();
 		messageDAO.insertMessage(userId, message.getMessage(), message.getTimestamp());
     }
-}
+}*/

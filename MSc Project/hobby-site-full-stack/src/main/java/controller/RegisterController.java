@@ -40,8 +40,7 @@ public class RegisterController {
 					registerJSONObj.getFname(),
 					registerJSONObj.getLname(),
 					registerJSONObj.getGender(),
-					registerJSONObj.getLocation(),
-					"profileImg"
+					registerJSONObj.getLocation()
 				);
 		String hashedPwd = hashPassword(registerJSONObj.getPassword());
 		UserLogin userLogin = new UserLogin(registerJSONObj.getUname(), hashedPwd);
